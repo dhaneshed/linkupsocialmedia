@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@zegocloud/zego-uikit-prebuilt": "^1.8.11",
     "axios": "^1.4.0",
+    "mern-social": "file:..",
     "react": "^18.2.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
