@@ -1,0 +1,31 @@
+.follower{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversation:hover {
+  background: #80808038;
+  cursor: pointer;
+}
+
+.conversation {
+  border-radius: 0.5rem;
+  padding: 10px;
+}
+
+.conversation > div {
+  position: relative;
+}
+
+
+.follower>div{
+  display: flex;
+  gap: 10px;
+}
+
+.followerImage{
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+}

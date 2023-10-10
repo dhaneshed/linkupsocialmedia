@@ -1,0 +1,73 @@
+.navbar{
+  height: 50px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  color:white;
+  position:relative;
+  padding-right:100px;
+  z-index:1000;
+}
+
+.logo{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.icons{
+  display:flex;
+  align-items:center;
+}
+
+.icon{
+  margin-left:15px;
+  cursor:pointer;
+  position:relative;
+}
+
+.iconImg{
+  width: 20px;
+  height: 20px;
+
+}
+
+.counter{
+  width:5px;
+  height:5px;
+  background-color: red;
+  border-radius:50%;
+  padding:5px;
+  font-size:12px;
+  display:flex;
+  align-items: center;
+  justify-content: center; 
+  position:absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.notifications{
+  position:absolute;
+  top:50px;
+  right:0px;
+  background-color: #f5f6f7;
+  color: #333;
+  font-weight:300px;
+  display:flex;
+  flex-direction:column;
+  padding:10px;
+  border: 1px solid #ccc; /* Add a border for separation */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.notification{
+  padding:10px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.nButton{
+  width:100%;
+  padding:5px;
+  margin-top:10px;
+}
