@@ -1,10 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Login from "./Pages/Login/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
-import { blockStatus, loadUser, logoutUser } from "./Actions/User";
+import {  loadUser, logoutUser } from "./Actions/User";
 import Home from "./Pages/Home/Home";
 import Account from "./Pages/Account/Account";
 import NewPost from "./Pages/NewPost/NewPost";
@@ -20,7 +20,6 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import UserList from "./Components/userList/userList";
 import AdminLogin from "./Pages/AdminLogin/AdminLogin";
 import { loadAdmin} from "./Actions/Admin";
-import Profile from "./Components/Profile/Profile";
 import Chat from "./Pages/Chat/Chat";
 import Room from "./Pages/Room/Room";
 import RoomPage from "./Pages/RoomPage/RoomPage";
@@ -58,7 +57,7 @@ function App() {
   return () => {
     socket.current.off('user-blocked');
   };
-}, []);
+}, [dispatch]);
 
 
 

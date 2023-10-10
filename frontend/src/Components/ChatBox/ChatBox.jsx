@@ -17,7 +17,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
       setMessages((prevMessages) => [...prevMessages, receiveMessage]);
 
     }
-  }, [receiveMessage]);
+  }, [receiveMessage,chat?._id]);
 
   //fetching data from the header
 
