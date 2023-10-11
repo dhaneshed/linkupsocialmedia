@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../../Actions/User";
 import "./ForgotPassword.css";

@@ -46,7 +46,6 @@ const Account = () => {
   const [followingToggle, setFollowingToggle] = useState(false);
   const logoutHandler = () => {
     dispatch(logoutUser());
-    alert.success("Logged out successfully");
   };
 
   const deleteProfileHandler = async () => {
@@ -58,21 +57,7 @@ const Account = () => {
     dispatch(getMyPosts());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch({ type: "clearErrors" });
-    }
-
-    if (likeError) {
-      alert.error(likeError);
-      dispatch({ type: "clearErrors" });
-    }
-    if (message) {
-      alert.success(message);
-      dispatch({ type: "clearMessage" });
-    }
-  }, [alert, error, message, likeError, dispatch]);
+ 
 
   return loading === true || userLoading === true ? (
     <Loader />
