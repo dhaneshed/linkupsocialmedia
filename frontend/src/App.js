@@ -117,46 +117,46 @@ function App() {
           }
         />
 
-        <Route path="/" element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <Home /> : <Login />}</UserBlockedMiddleware>} />
+        <Route path="/" element={<UserBlockedMiddleware>{isAuthenticated  ? <Home /> : <Login />}</UserBlockedMiddleware>} />
         <Route
           path="/account"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <Account /> : <Login />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated  ? <Account /> : <Login />}</UserBlockedMiddleware>}
         />
-        <Route path="/chat" element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <Chat /> : <Login />}</UserBlockedMiddleware>} />
+        <Route path="/chat" element={<UserBlockedMiddleware>{isAuthenticated ? <Chat /> : <Login />}</UserBlockedMiddleware>} />
 
-        <Route path="/room" element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <Room/> : <Login />}</UserBlockedMiddleware>} />
+        <Route path="/room" element={<UserBlockedMiddleware>{isAuthenticated  ? <Room/> : <Login />}</UserBlockedMiddleware>} />
         
-        <Route path="/room/:roomId" element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <RoomPage/> : <Login />}</UserBlockedMiddleware>} />
+        <Route path="/room/:roomId" element={<UserBlockedMiddleware>{isAuthenticated  ? <RoomPage/> : <Login />}</UserBlockedMiddleware>} />
         <Route
           path="/register"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <Account /> : <Register />}</UserBlockedMiddleware> }
+          element={<UserBlockedMiddleware>{isAuthenticated ? <Account /> : <Register />}</UserBlockedMiddleware> }
         />
         <Route
           path="/newpost"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <NewPost /> : <Login />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated ? <NewPost /> : <Login />}</UserBlockedMiddleware>}
         />
         <Route
           path="/update/profile"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <UpdateProfile /> : <Login />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated  ? <UpdateProfile /> : <Login />}</UserBlockedMiddleware>}
         />
         <Route
           path="/update/password"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <UpdatePassword /> : <Login />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated  ? <UpdatePassword /> : <Login />}</UserBlockedMiddleware>}
         />
 
         <Route
           path="/forgot/password"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <UpdatePassword /> : <ForgotPassword />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated  ? <UpdatePassword /> : <ForgotPassword />}</UserBlockedMiddleware>}
         />
 
         <Route
           path="/password/reset/:token"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked ? <UpdatePassword /> : <ResetPassword />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated  ? <UpdatePassword /> : <ResetPassword />}</UserBlockedMiddleware>}
         />
 
         <Route
           path="/user/:id"
-          element={<UserBlockedMiddleware>{isAuthenticated && !user?.isBlocked  ? <UserProfile /> : <Login />}</UserBlockedMiddleware>}
+          element={<UserBlockedMiddleware>{isAuthenticated   ? <UserProfile /> : <Login />}</UserBlockedMiddleware>}
         />
         <Route path="/user/*" element={<NotFound />} />
 
