@@ -161,7 +161,7 @@ const Chat = () => {
               {name !== "" &&
                 users &&
                 user &&
-                filteredUsers?.map((member) => (
+                (filteredUsers ||[])?.map((member) => (
                   
                   <div
                     key={member?._id}
@@ -178,13 +178,13 @@ const Chat = () => {
                       />
                     )}
                   </div>
-                )) || []}
+                ))}
             </div>
           </form>
 
           <h2>Chats</h2>
           <div className="Chat-list">
-            {chats?.map((chat) => (
+            {(chats||[])?.map((chat) => (
               <div key={chat?._id} onClick={() => setCurrentChat(chat)}>
                 <Conversation
                   key={chat?.createdAt}
@@ -193,7 +193,7 @@ const Chat = () => {
                   online={checkOnlineStatus(chat)}
                 />
               </div>
-            ))|| []}
+            ))}
           </div>
         </div>
       </div>

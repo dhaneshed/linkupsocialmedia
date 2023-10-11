@@ -107,7 +107,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
           {/* chatbox Messages */}
           <div className="chat-body">
 
-            {messages?.map((message,index) => (
+            {(messages|| [])?.map((message,index) => (
             
               <div ref={scroll}
               key={`${message?._id}-${message?.createdAt || 'defaultCreatedAt'}-${message?.updatedAt || 'defaultUpdatedAt'}-${index}`}
@@ -124,7 +124,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
                 </div>
                 
               </div>
-            ))|| []}
+            ))}
 
             
           </div>
