@@ -21,7 +21,7 @@ const RoomPage = () => {
       container: element,
       sharedLinks:[{
         name: 'Copy Link',
-        url:`http://localhost:3000/room/${roomId}`
+        url:`https://linkupsocial.online/room/${roomId}`
       }],
       scenario:{
         mode:ZegoUIKitPrebuilt.OneONoneCall,

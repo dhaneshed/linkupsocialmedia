@@ -1,6 +1,6 @@
-const io = require("socket.io")(8800, {
+const io = require("socket.io")( {
   cors: {
-    origin: "https://linkupsocial.online/",
+    origin: "*",
     methods: ["GET", "POST"],
     transports: ["websocket", "polling"],
     credentials: true,
