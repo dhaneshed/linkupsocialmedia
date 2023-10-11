@@ -1,8 +1,10 @@
 import axios from 'axios'
+
+const baseURL = process.env.BACKEND_BASE_URL;
 export const UserApi=axios.create({
-  baseURL:"http://localhost:4000/api/v1",
+  baseURL,
   withCredentials: true
-})
+});
 
 
 

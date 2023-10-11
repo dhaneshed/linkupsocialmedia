@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== "production") {
 //Using middlewares
 
 var corsoption = {
-  origin: "http://localhost:3000", //origin from where you requesting
+  origin: "https://linkupsocial.online/", //origin from where you requesting
   credentials: true
 };
 //using cors
