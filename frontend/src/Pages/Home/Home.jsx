@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers, getFollowingPosts, logoutUser } from "../../Actions/User";
 
 import { Typography } from "@mui/material";
-import { useAlert } from "react-alert";
 import Loader from "../../Components/Loader/Loader";
 import Post from "../../Components/Post/Post";
 import User from "../../Components/User/User";
@@ -14,10 +13,9 @@ import { Navigate } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const socket = useRef();
 
-  socket.current = io("http://localhost:8800");
+  socket.current = io("https://linkupsocial.online/");
 
   useEffect(() => {
     // Listen for 'user-blocked' event
@@ -50,23 +48,7 @@ const Home = () => {
     dispatch(getAllUsers());
   }, [dispatch]);
 
-  useEffect(() => {
-    if(error){
-      alert.error(error);
-      dispatch({ type: "clearErrors"});
-    }
 
-    if(likeError){
-      alert.error(likeError);
-      dispatch({ type: "clearErrors"});
-    }
-  
-    if(message){
-      alert.success(message);
-      dispatch({type: "clearMessage" });
-    }
-  
-  }, [alert, error, message,likeError,dispatch]);
 
   console.log("posts is.......",posts);
   

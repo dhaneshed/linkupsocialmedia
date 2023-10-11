@@ -1,4 +1,4 @@
-import { AttachMoney, BarChart, ChatBubbleOutline, DynamicFeed, LineStyle, MailOutline, PermIdentity, Report, Storefront, Timeline, TrendingUp, WorkOutline } from "@mui/icons-material";
+import {  LineStyle,  PermIdentity,  } from "@mui/icons-material";
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import "./Sidebar.css";
 

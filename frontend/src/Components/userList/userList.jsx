@@ -1,7 +1,6 @@
 import "./userList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { io } from "socket.io-client";
-import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adminViewUsers, blockTheUser, unBlockTheUser } from "../../Actions/Admin";
@@ -14,7 +13,7 @@ export default function UserList() {
   const [sortModel, setSortModel] = useState([]);
   const socket = useRef();
   const dispatch = useDispatch();
-  socket.current = io("http://localhost:8800");
+  socket.current = io("https://linkupsocial.online/");
 
   useEffect(() => {
     dispatch(adminViewUsers());

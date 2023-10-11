@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { blockStatus, logoutUser } from "./Actions/User";
-import Loader from "./Components/Loader/Loader";
 import { io } from "socket.io-client";
 import { useRef } from "react";
 
@@ -27,7 +26,7 @@ const UserBlockedMiddleware = ({ children }) => {
     return () => {
       socket.current.off("user-blocked");
     };
-  }, []);
+  }, [dispatch]);
 
 
 

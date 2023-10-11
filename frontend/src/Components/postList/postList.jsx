@@ -1,14 +1,11 @@
 import "../userList/userList.css";
 import { DataGrid} from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adminReportPosts, adminUserPostDelete } from "../../Actions/Admin";
-import { useAlert } from "react-alert";
 
 export default function PostList() {
-   const alert = useAlert();
   const { posts} = useSelector(
     (state) => state.reportPosts
   );
@@ -35,7 +32,6 @@ export default function PostList() {
 
       await dispatch(adminUserPostDelete(userId,postId));
       dispatch(adminReportPosts());
-      alert.success("Post Deleted");
       
     } catch (error) {
 

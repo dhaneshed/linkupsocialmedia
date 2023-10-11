@@ -4,7 +4,6 @@ import { FaComments, FaFlag, FaNewspaper, FaUsers } from "react-icons/fa";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,

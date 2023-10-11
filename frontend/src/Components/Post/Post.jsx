@@ -31,7 +31,6 @@ import { format } from "timeago.js";
 
 import { io } from "socket.io-client";
 import ReportCard from "../ReportCard/ReportCard";
-import { useAlert } from "react-alert";
 import ReplyCard from "../ReplyCard/ReplyCard";
 
 const Post = ({
@@ -67,10 +66,8 @@ const Post = ({
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
-  const alert = useAlert();
-
   useEffect(() => {
-    setSocket(io("http://localhost:8800"));
+    setSocket(io("https://linkupsocial.online/"));
   }, []);
 
   const renderReplies = (comment) => {
@@ -175,7 +172,6 @@ const Post = ({
     await dispatch(adminUserPostDelete(ownerId, postId));
     dispatch(loadAdmin());
     dispatch(adminUserPosts(ownerId));
-    alert.success("Post Deleted");
   };
 
   return (

@@ -1,6 +1,5 @@
 import { Avatar, Button, Dialog, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteMyProfile, getMyPosts, logoutUser } from "../../Actions/User";
@@ -14,11 +13,10 @@ import { Navigate } from "react-router-dom";
 
 const Account = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
 
    const socket = useRef();
 
-  socket.current = io("http://localhost:8800");
+  socket.current = io("https://linkupsocial.online/");
 
   useEffect(() => {
     // Listen for 'user-blocked' event

@@ -11,7 +11,7 @@ const Notification = () => {
   const [socketConnected, setSocketConnected] = useState(false); // Track socket connection
 
   useEffect(() => {
-    const newSocket = io("http://localhost:8800");
+    const newSocket = io("https://linkupsocial.online/");
     newSocket.on("connect",()=>{
       setSocket(newSocket);
       setSocketConnected(true);

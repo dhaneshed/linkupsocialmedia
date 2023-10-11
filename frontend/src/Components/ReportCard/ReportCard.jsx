@@ -9,11 +9,7 @@ const ReportCard = ({
   userId,
   name,
   avatar,
-  comment,
-  commentId,
-  postId,
-  isAccount,
-  isAdmin,
+  comment
 }) => {
   
  

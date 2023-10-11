@@ -1,6 +1,5 @@
 import { Avatar, Dialog, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -12,7 +11,6 @@ import { adminUserPosts, adminUserProfile } from "../../Actions/Admin";
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   const {
     user,
@@ -40,32 +38,6 @@ const Profile = () => {
   }, [dispatch, params.id]);
 
 
-
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch({ type: "clearErrors" });
-    }
-
-  
-
-    if (followError) {
-      alert.error(followError);
-      dispatch({ type: "clearErrors" });
-    }
-
-    if (userError) {
-      alert.error(userError);
-      dispatch({ type: "clearErrors" });
-    }
-    if (message) {
-      alert.success(message);
-      dispatch({ type: "clearMessage" });
-    }
-
-   
-
-  }, [alert, error, message, followError, userError, dispatch]);
 
   return loading === true || userLoading === true ? (
     <Loader />

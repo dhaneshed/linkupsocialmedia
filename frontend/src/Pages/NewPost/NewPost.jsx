@@ -4,7 +4,6 @@ import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"; 
 import { createNewPost } from "../../Actions/Post";
-import { useAlert } from "react-alert";
 import { loadUser, logoutUser } from "../../Actions/User";
 import { io } from "socket.io-client";
 import { useRef } from "react";
@@ -15,7 +14,7 @@ const NewPost = () => {
   const [caption, setCaption] = useState("");
   const socket = useRef();
 
-  socket.current = io("http://localhost:8800");
+  socket.current = io("https://linkupsocial.online/");
 
   useEffect(() => {
     // Listen for 'user-blocked' event
@@ -35,7 +34,6 @@ const NewPost = () => {
 
   const { loading, error, message} = useSelector((state) => state.like);
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
 
 
@@ -57,17 +55,7 @@ const NewPost = () => {
     navigate("/account"); 
   };
   
-  useEffect(() => {
-    if(error){
-      alert.error(error);
-      dispatch({type: "clearErrors"});
-    }
-    if(message){
-      alert.success(message);
-      dispatch({type: "clearMessage"});
-    }
-  
-  }, [dispatch,error,message,alert]);
+
   
 
   return (

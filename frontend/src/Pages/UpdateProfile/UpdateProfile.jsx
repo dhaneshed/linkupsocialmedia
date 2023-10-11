@@ -1,9 +1,8 @@
 import { Avatar, Typography, Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./UpdateProfile.css";
 import { loadUser, updateProfile } from "../../Actions/User";
-import { useAlert } from "react-alert";
 import Loader from "../../Components/Loader/Loader";
 
 const UpdateProfile = () => {
@@ -20,7 +19,6 @@ const UpdateProfile = () => {
   const [avatarPrev, setAvatarPrev] = useState(user?.avatar?.url);
 
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -44,22 +42,6 @@ const UpdateProfile = () => {
     dispatch(loadUser());
   };
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch({ type: "clearErrors" });
-    }
-
-    if (updateError) {
-      alert.error(updateError);
-      dispatch({ type: "clearErrors" });
-    }
-
-    if (message) {
-      alert.success(message);
-      dispatch({ type: "clearMessage" });
-    }
-  }, [dispatch, error, alert, updateError, message]);
   return loading ? (
     <Loader />
   ) : (

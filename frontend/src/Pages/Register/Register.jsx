@@ -3,7 +3,6 @@ import "./Register.css";
 import { Avatar, Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser, registerUser } from "../../Actions/User";
-import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -12,7 +11,6 @@ const Register = () => {
   const [avatar, setAvatar] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const alert = useAlert();
   const { loading, error } = useSelector((state) => state.user);
 
   const handleImageChange = (e) => {
@@ -31,12 +29,7 @@ const Register = () => {
     dispatch(registerUser(name, email, password, avatar));
     dispatch(loadUser());
   };
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch({ type: "clearErrors" });
-    }
-  }, [dispatch, error, alert]);
+ 
 
   return (
     <div className="register">
