@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.c54831c2.css",
-    "main.js": "/static/js/main.e7af3dbc.js",
+    "main.js": "/static/js/main.87d9f255.js",
     "static/media/notification-bell-svgrepo-com.svg": "/static/media/notification-bell-svgrepo-com.d7924fe8ea9d53eacd66430de3359e33.svg",
     "index.html": "/index.html"
   },
   "entrypoints": [
     "static/css/main.c54831c2.css",
-    "static/js/main.e7af3dbc.js"
+    "static/js/main.87d9f255.js"
   ]
 }

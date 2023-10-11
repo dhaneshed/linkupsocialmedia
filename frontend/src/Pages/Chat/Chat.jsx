@@ -53,7 +53,7 @@ const Chat = () => {
 
   useEffect(() => {
     socket.current = io("https://linkupsocial.online");
-    socket.current.emit("new-user-add", user._id);
+    socket.current.emit("new-user-add", user?._id);
     socket.current.on("get-users", (users) => {
       setOnlineUsers(users);
     });
