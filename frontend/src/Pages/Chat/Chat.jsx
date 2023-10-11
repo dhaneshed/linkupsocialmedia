@@ -123,7 +123,7 @@ const Chat = () => {
 
         }else{
         const response = await newChat(user?._id, userId);
-        const newChatData = response.data;
+        const newChatData = response?.data;
 
         setCurrentChat(newChatData);
         }
