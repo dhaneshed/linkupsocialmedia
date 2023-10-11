@@ -178,7 +178,7 @@ const Chat = () => {
                       />
                     )}
                   </div>
-                ))}
+                )) || []}
             </div>
           </form>
 
@@ -193,7 +193,7 @@ const Chat = () => {
                   online={checkOnlineStatus(chat)}
                 />
               </div>
-            ))}
+            ))|| []}
           </div>
         </div>
       </div>

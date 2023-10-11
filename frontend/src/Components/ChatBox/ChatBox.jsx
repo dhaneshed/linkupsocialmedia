@@ -124,7 +124,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
                 </div>
                 
               </div>
-            ))}
+            ))|| []}
 
             
           </div>
