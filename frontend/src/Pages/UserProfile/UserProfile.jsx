@@ -38,16 +38,16 @@ const UserProfile = () => {
   const followHandler = async () => {
     setFollowing(!following);
     await dispatch(followAndUnfollowUser(user?._id));
-    dispatch(getUserProfile(params.id));
+    dispatch(getUserProfile(params?.id));
   };
 
   useEffect(() => {
-    dispatch(getUserPosts(params.id));
-     dispatch(getUserProfile(params.id));
-  }, [dispatch, params.id]);
+    dispatch(getUserPosts(params?.id));
+     dispatch(getUserProfile(params?.id));
+  }, [dispatch, params?.id]);
 
   useEffect(() => {
-    if (me?._id === params.id) {
+    if (me?._id === params?.id) {
       setMyProfile(true);
     }
     if (user) {
@@ -59,7 +59,7 @@ const UserProfile = () => {
         }
       });
     }
-  }, [user, me?._id, params.id]);
+  }, [user, me?._id, params?.id]);
 
   
 
@@ -68,20 +68,20 @@ const UserProfile = () => {
   ) : (
     <div className="account">
       <div className="accountleft">
-        {posts && posts.length > 0 ? (
-          posts.map((post) => (
+        {posts && posts?.length > 0 ? (
+          posts?.map((post) => (
             <Post
-              key={post._id}
-              postId={post._id}
-              caption={post.caption}
-              createdAt={post.createdAt}
-              postImage={post.image.url}
-              likes={post.likes}
-              comments={post.comments}
-              reports={post.reports}
-              ownerImage={post.owner.avatar.url}
-              ownerName={post.owner.name}
-              ownerId={post.owner._id}
+              key={post?._id}
+              postId={post?._id}
+              caption={post?.caption}
+              createdAt={post?.createdAt}
+              postImage={post?.image?.url}
+              likes={post?.likes}
+              comments={post?.comments}
+              reports={post?.reports}
+              ownerImage={post?.owner?.avatar?.url}
+              ownerName={post?.owner?.name}
+              ownerId={post?.owner?._id}
             />
           ))
         ) : (

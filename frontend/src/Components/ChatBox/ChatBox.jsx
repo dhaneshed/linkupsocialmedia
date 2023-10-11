@@ -110,7 +110,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
             {messages?.map((message,index) => (
             
               <div ref={scroll}
-              key={`${message._id}-${message.createdAt || 'defaultCreatedAt'}-${message.updatedAt || 'defaultUpdatedAt'}-${index}`}
+              key={`${message?._id}-${message?.createdAt || 'defaultCreatedAt'}-${message?.updatedAt || 'defaultUpdatedAt'}-${index}`}
                 className={
                   message?.senderId === currentUser
                     ? "message own"

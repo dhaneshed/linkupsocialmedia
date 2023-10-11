@@ -12,7 +12,7 @@ const ResetPassword = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(resetPassword(params.token, newPassword));
+    dispatch(resetPassword(params?.token, newPassword));
   };
 
 

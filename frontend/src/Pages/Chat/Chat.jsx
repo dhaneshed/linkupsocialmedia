@@ -76,7 +76,7 @@ const Chat = () => {
     const getChats = async () => {
       try {
         const response = await userChats(user?._id);
-        const data = response.data; // Extract data from the response
+        const data = response?.data; // Extract data from the response
         if (data !== null && data !== undefined) {
           setChats(data);
         } else {
@@ -92,14 +92,14 @@ const Chat = () => {
      // Filter out users who are already in the chat list
   const filteredUsers = users?.filter((member) => {
     // Check if the member's ID is not in any of the chat's members array
-    return !chats.some((chat) => chat.members.includes(member._id));
+    return !chats?.some((chat) => chat?.members?.includes(member?._id));
   });
 
   const handleTalkClick = async (userId) => {
     try {
 
        // Check if a chat with this user is already in progress
-    if (currentChat?.members.includes(userId)) {
+    if (currentChat?.members?.includes(userId)) {
       // Chat with this user already exists, do nothing
       return;
     }
@@ -113,16 +113,16 @@ const Chat = () => {
       return;
     }
 
-      const existingChat = chats.find((chat)=>
-      chat.members.includes(user._id) && chat.members.includes(userId));
+      const existingChat = chats?.find((chat)=>
+      chat?.members?.includes(user?._id) && chat?.members?.includes(userId));
 
 
-      if (user._id !== userId ) {
+      if (user?._id !== userId ) {
         if(existingChat){
           setCurrentChat(existingChat);
 
         }else{
-        const response = await newChat(user._id, userId);
+        const response = await newChat(user?._id, userId);
         const newChatData = response.data;
 
         setCurrentChat(newChatData);
@@ -136,8 +136,8 @@ const Chat = () => {
   };
 
   const checkOnlineStatus = (chat) => {
-    const chatMember = chat.members.find((member) => member !== user._id);
-    const online = onlineUsers.find((user) => user.userId === chatMember);
+    const chatMember = chat?.members?.find((member) => member !== user?._id);
+    const online = onlineUsers?.find((user) => user?.userId === chatMember);
     return online ? true : false;
   };
   return (
@@ -161,20 +161,20 @@ const Chat = () => {
               {name !== "" &&
                 users &&
                 user &&
-                filteredUsers.map((member) => (
+                filteredUsers?.map((member) => (
                   
                   <div
                     key={member?._id}
-                    onClick={() => handleTalkClick(member._id)}
+                    onClick={() => handleTalkClick(member?._id)}
                   >
 
                   
-                    {member._id !== user._id && (
+                    {member?._id !== user?._id && (
                       <Talk
-                        key={member._id}
-                        userId={member._id}
-                        name={member.name}
-                        avatar={member.avatar.url}
+                        key={member?._id}
+                        userId={member?._id}
+                        name={member?.name}
+                        avatar={member?.avatar?.url}
                       />
                     )}
                   </div>

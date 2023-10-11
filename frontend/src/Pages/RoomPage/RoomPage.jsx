@@ -14,7 +14,7 @@ const RoomPage = () => {
       serverSecret,
       roomId,
       Date.now().toString(),
-      user.name
+      user?.name
     );
     const zc = ZegoUIKitPrebuilt.create(kitToken);
     zc.joinRoom({

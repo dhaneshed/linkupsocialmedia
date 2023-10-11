@@ -7,7 +7,7 @@ const Conversation = ({data,currentUserId, online,userId,name ,avatar}) => {
   const [userData,setUserData] = useState(null)
 
   useEffect(() => {
-    const userId = data.members.find((id)=>id!==currentUserId);
+    const userId = data?.members?.find((id)=>id!==currentUserId);
     const getUserData = async()=>{
       try {
         const {data} = await getUser(userId);

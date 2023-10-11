@@ -58,20 +58,20 @@ const Home = () => {
   ) : (
     <div className="home">
       <div className="homeleft">
-        {posts && posts.length > 0 ? (
-          posts.map((post) => (
+        {posts && posts?.length > 0 ? (
+          posts?.map((post) => (
             <Post
-              key={post._id}
-              postId={post._id}
-              caption={post.caption}
-              createdAt={post.createdAt}
-              postImage={post.image.url}
-              likes={post.likes}
-              comments={post.comments}
-              reports={post.reports}
-              ownerImage={post.owner.avatar.url}
-              ownerName={post.owner.name}
-              ownerId={post.owner._id}
+              key={post?._id}
+              postId={post?._id}
+              caption={post?.caption}
+              createdAt={post?.createdAt}
+              postImage={post?.image?.url}
+              likes={post?.likes}
+              comments={post?.comments}
+              reports={post?.reports}
+              ownerImage={post?.owner?.avatar?.url}
+              ownerName={post?.owner?.name}
+              ownerId={post?.owner?._id}
               
             />
           ))
@@ -81,13 +81,13 @@ const Home = () => {
       </div>
       <div className="homeright">
       <Typography>Contacts</Typography>
-        {users && users.length > 0 ? (
-          users.map((user) => (
+        {users && users?.length > 0 ? (
+          users?.map((user) => (
             <User
-             key={user._id}
-              userId={user._id}
-              name={user.name}
-              avatar={user.avatar.url
+             key={user?._id}
+              userId={user?._id}
+              name={user?.name}
+              avatar={user?.avatar?.url
               }
             />
           ))

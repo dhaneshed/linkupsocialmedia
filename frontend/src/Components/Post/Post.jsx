@@ -71,8 +71,8 @@ const Post = ({
   }, []);
 
   const renderReplies = (comment) => {
-  if (comment.replies && Array.isArray(comment.replies)) {
-    return comment.replies.map((reply) => (
+  if (comment?.replies && Array.isArray(comment?.replies)) {
+    return comment?.replies?.map((reply) => (
       <ReplyCard
         key={reply?._id}
         userId={reply?.user?._id}
@@ -104,10 +104,10 @@ const Post = ({
         dispatch(getFollowingPosts());
       }
       // Check if the user liking the post is not the post owne
-      if (ownerId !== user._id) {
+      if (ownerId !== user?._id) {
         // Send a like notification
         socket.emit("sendNotification", {
-          senderName: user.name, // Assuming you have a name field in the user object
+          senderName: user?.name, // Assuming you have a name field in the user object
           receiverName: ownerName,
           type: 1, // Like notification type
         });
@@ -126,10 +126,10 @@ const Post = ({
     }
 
     // Check if the user commenting the post is not the post owner
-    if (ownerId !== user._id) {
+    if (ownerId !== user?._id) {
       // Send a comment notification
       socket.emit("sendNotification", {
-        senderName: user.name, // Assuming you have a name field in the user object
+        senderName: user?.name, // Assuming you have a name field in the user object
         receiverName: ownerName,
         type: 2, // Comment notification type
       });
@@ -228,9 +228,9 @@ const Post = ({
           margin: "1vmax 2vmax",
         }}
         onClick={() => setLikesUser(!likesUser)}
-        disabled={likes.length === 0 ? true : false}
+        disabled={likes?.length === 0 ? true : false}
       >
-        <Typography>{likes.length} Likes</Typography>
+        <Typography>{likes?.length} Likes</Typography>
       </button>
       <div className="postFooter">
         <Button onClick={handleLike}>
@@ -260,12 +260,12 @@ const Post = ({
         <div className="DialogBox">
           <Typography variant="h4">Liked By</Typography>
 
-          {likes.map((like) => (
+          {likes?.map((like) => (
             <User
-              key={like._id}
-              userId={like._id}
-              name={like.name}
-              avatar={like.avatar.url}
+              key={like?._id}
+              userId={like?._id}
+              name={like?.name}
+              avatar={like?.avatar?.url}
             />
           ))}
         </div>
@@ -291,8 +291,8 @@ const Post = ({
             </form>
           )}
 
-          {comments.length > 0 ? (
-            comments.map((item) => (
+          {comments?.length > 0 ? (
+            comments?.map((item) => (
                <React.Fragment key={item?._id}>
               <CommentCard
                 userId={item?.user?._id}

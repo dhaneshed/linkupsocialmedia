@@ -24,13 +24,13 @@ const Notification = () => {
 
   useEffect(() => {
     if (socketConnected) {
-      socket?.emit("newUser", user.name);
+      socket?.emit("newUser", user?.name);
       socket.on("getNotification", (data) => {
         console.log("Notification received:", data);
         setNotifications((prev) => [...prev, data]);
       });
     }
-  }, [socketConnected,socket,user.name]);
+  }, [socketConnected,socket,user?.name]);
 
   
 

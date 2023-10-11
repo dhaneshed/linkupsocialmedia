@@ -64,21 +64,21 @@ const Account = () => {
   ) : (
     <div className="account">
       <div className="accountleft">
-        {posts && posts.length > 0 ? (
-          posts.map((post) => (
+        {posts && posts?.length > 0 ? (
+          posts?.map((post) => (
             <Post
-              key={post._id}
-              postId={post._id}
-              caption={post.caption}
-              createdAt={post.createdAt}
-              postImage={post.image.url}
-              likes={post.likes}
-              comments={post.comments}
-              replies={post.comments.replies}
-              reports={post.reports}
-              ownerImage={post.owner.avatar.url}
-              ownerName={post.owner.name}
-              ownerId={post.owner._id}
+              key={post?._id}
+              postId={post?._id}
+              caption={post?.caption}
+              createdAt={post?.createdAt}
+              postImage={post?.image?.url}
+              likes={post?.likes}
+              comments={post?.comments}
+              replies={post?.comments?.replies}
+              reports={post?.reports}
+              ownerImage={post?.owner?.avatar?.url}
+              ownerName={post?.owner?.name}
+              ownerId={post?.owner?._id}
               isAccount={true}
               isDelete={true}
             />

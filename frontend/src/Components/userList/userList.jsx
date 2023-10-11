@@ -29,7 +29,7 @@ export default function UserList() {
   }, [users]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setData(data?.filter((item) => item?.id !== id));
   };
 
 
@@ -53,7 +53,7 @@ export default function UserList() {
     
   };
 
-  const getRowId = (row) => row._id; // Assuming `_id` is the unique property
+  const getRowId = (row) => row?._id; // Assuming `_id` is the unique property
 
   const columns = [
     {
@@ -106,17 +106,17 @@ export default function UserList() {
         return (
           <>
        
-            {params.row.isBlocked ? (
+            {params?.row?.isBlocked ? (
               <button
                 className="userListEdit"
-                onClick={() => handleUnblockUser(params.row._id)}
+                onClick={() => handleUnblockUser(params?.row?._id)}
               >
                 Activate
               </button>
             ) : (
               <button
                 className="userListDelete"
-                onClick={() => handleBlockUser(params.row._id)}
+                onClick={() => handleBlockUser(params?.row?._id)}
               >
                 Block
               </button>
@@ -132,7 +132,7 @@ export default function UserList() {
     setSortModel(newModel);
     // Sort the data accordingly
     const sortedData = [...data];
-    newModel.forEach((model) => {
+    newModel?.forEach((model) => {
       const { field, sort } = model;
       sortedData.sort((a, b) => {
         const aValue = a[field];

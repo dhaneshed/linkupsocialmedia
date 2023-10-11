@@ -60,12 +60,12 @@ const Search = () => {
 
         <div className="searchResults">
           {users &&
-            users.map((user) => (
+            users?.map((user) => (
               <User
-                key={user._id}
-                userId={user._id}
-                name={user.name}
-                avatar={user.avatar.url}
+                key={user?._id}
+                userId={user?._id}
+                name={user?.name}
+                avatar={user?.avatar?.url}
               />
             ))}
         </div>
