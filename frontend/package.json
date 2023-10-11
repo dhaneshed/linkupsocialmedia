@@ -18,8 +18,6 @@
     "axios": "^1.4.0",
     "mern-social": "file:..",
     "react": "^18.2.0",
-    "react-alert": "^7.0.3",
-    "react-alert-template-basic": "^1.0.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-input-emoji": "^5.3.1",

@@ -18,7 +18,6 @@
 
 /frontend/coverage
 
-/frontend/build
 
 /frontend/.DS_Store
 /frontend/.env.local
@@ -33,7 +32,7 @@
 
 /socket/coverage
 
-/socket/build
+
 
 /socket/.DS_Store
 /socket/.env.local
