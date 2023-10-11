@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start" : "node backend/server.js",
     "dev": "nodemon backend/server.js",
     "build": "npm install --legacy-peer-deps && cd frontend && npm install --legacy-peer-deps && npm run build "
   },
