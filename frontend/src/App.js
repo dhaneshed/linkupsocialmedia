@@ -35,6 +35,10 @@ function App() {
   const { isAuthenticated ,user} = useSelector((state) => state.user);
 
   const { isAdminAuthenticated } = useSelector((state) => state.admin);
+
+  console.log("isAuthenticated is..........",isAuthenticated);
+  console.log("isAdminAuthenticated is.........",isAdminAuthenticated);
+  
   
   
   
