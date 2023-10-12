@@ -12,7 +12,7 @@ const UserBlockedMiddleware = ({ children }) => {
 
   const socket = useRef();
 
-  socket.current = io("https://linkupsocial.online/");
+  socket.current = io("https://linkupsocial.online");
 
   useEffect(() => {
     // Listen for 'user-blocked' event

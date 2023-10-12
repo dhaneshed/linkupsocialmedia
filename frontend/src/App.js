@@ -34,11 +34,9 @@ function App() {
 
   const { isAuthenticated ,user} = useSelector((state) => state.user);
 
-  const { isAdminAuthenticated } = useSelector((state) => state.admin);
+   const { isAdminAuthenticated } = useSelector((state) => state.admin);
 
-  console.log("isAuthenticated is..........",isAuthenticated);
-  console.log("isAdminAuthenticated is.........",isAdminAuthenticated);
-  
+
   
   
   
@@ -71,10 +69,10 @@ function App() {
 
 
 
-  useEffect(() => {
-    dispatch(loadUser());
-    dispatch(loadAdmin());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(loadUser());
+  //   dispatch(loadAdmin());
+  // }, [dispatch]);
 
   // Check if user is blocked and log them out if necessary
   useEffect(() => {

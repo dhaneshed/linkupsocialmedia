@@ -3,6 +3,7 @@ const Admin = require("../models/Admin");
 const jwt = require("jsonwebtoken");
 module.exports={
   isAdminAuthenticated : async (req, res, next) => {
+    console.log("Admin Authentication.......");
   try {
     const { adminToken } = req.cookies;
   

@@ -11,9 +11,18 @@ if (process.env.NODE_ENV !== "production") {
 //Using middlewares
 
 var corsoption = {
-  origin: "https://linkupsocial.online/", //origin from where you requesting
+  origin: "*", //origin from where you requesting
   credentials: true
 };
+app.use((req, res, next) => {
+  console.log('Request details:');
+  console.log(`Method: ${req.method}`);
+  console.log(`URL: ${req.url}`);
+  console.log(`Headers: ${JSON.stringify(req.headers)}`);
+  // You can log other request details as needed
+  next();
+});
+
 //using cors
 app.use(cors(corsoption));
 app.use(cookieParser());
@@ -52,6 +61,8 @@ if(process.env.NODE_ENV==='production'){
   });
 
 }
+
+
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // app.get("*",(req,res)=>{
