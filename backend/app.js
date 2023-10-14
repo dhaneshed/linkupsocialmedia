@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== "production") {
 //Using middlewares
 
 var corsoption = {
-  origin: "*", //origin from where you requesting
+  origin: process.env.ORIGIN, //origin from where you requesting
   credentials: true
 };
 app.use((req, res, next) => {

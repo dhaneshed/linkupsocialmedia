@@ -69,10 +69,10 @@ function App() {
 
 
 
-  // useEffect(() => {
-  //   dispatch(loadUser());
-  //   dispatch(loadAdmin());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(loadUser());
+    dispatch(loadAdmin());
+  }, [dispatch]);
 
   // Check if user is blocked and log them out if necessary
   useEffect(() => {
