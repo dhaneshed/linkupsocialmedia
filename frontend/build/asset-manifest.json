@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.dd84205c.css",
-    "main.js": "/static/js/main.e6887b8a.js",
+    "main.js": "/static/js/main.7d890f82.js",
     "static/media/notification-bell-svgrepo-com.svg": "/static/media/notification-bell-svgrepo-com.d7924fe8ea9d53eacd66430de3359e33.svg",
     "index.html": "/index.html",
     "main.dd84205c.css.map": "/static/css/main.dd84205c.css.map",
-    "main.e6887b8a.js.map": "/static/js/main.e6887b8a.js.map"
+    "main.7d890f82.js.map": "/static/js/main.7d890f82.js.map"
   },
   "entrypoints": [
     "static/css/main.dd84205c.css",
-    "static/js/main.e6887b8a.js"
+    "static/js/main.7d890f82.js"
   ]
 }
