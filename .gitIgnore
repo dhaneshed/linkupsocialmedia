@@ -21,6 +21,7 @@
 
 /frontend/.DS_Store
 /frontend/config.env/
+/frontend/.env
 /frontend/.env/
 /frontend/.env.local/
 /frontend/.env.development.local
