@@ -30,6 +30,9 @@ import Blocked from "./Pages/Blocked/Blocked";
 import { io } from "socket.io-client";
 
 function App() {
+
+  console.log(process.env.REACT_APP_BASE_URL);
+  console.log(process.env.REACT_APP_ADMIN_BASE_URL);
   const dispatch = useDispatch();
 
   const { isAuthenticated ,user} = useSelector((state) => state.user);
