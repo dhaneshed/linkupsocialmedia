@@ -6,7 +6,7 @@ export const loginUser = (email, password) => async (dispatch) => {
     dispatch({
       type: "LoginRequest",
     });
-
+    
     const { data } = await UserApi.post(
       "/login",
       { email, password },

@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 const baseURL = process.env.REACT_APP_BASE_URL;
+
+console.log("Base URL is ......",baseURL);
 export const UserApi=axios.create({
   baseURL,
   withCredentials: true

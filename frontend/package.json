@@ -30,7 +30,7 @@
     "web-vitals": "^2.1.4",
     "zego-zim-web": "^2.5.0"
   },
-   "proxy": "https://linkupsocial.online/api/v1",
+  
   "scripts": {
     "start": "react-scripts  start",
     "build": "react-scripts  build",
