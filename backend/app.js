@@ -12,25 +12,26 @@ if (process.env.NODE_ENV !== "production") {
 
 var corsoption = {
   origin: process.env.ORIGIN, //origin from where you requesting
-  credentials: true
+  credentials: true,
+  methods: "POST, GET, OPTIONS, PUT, DELETE", // Define the allowed HTTP methods
+  allowedHeaders: "Content-Type, X-Auth-Token, Origin, Authorization", // Define the allowed headers
+  optionSuccessStatus: 200,
 };
-app.use((req, res, next) => {
-  console.log('Request details:');
-  console.log(`Method: ${req.method}`);
-  console.log(`URL: ${req.url}`);
-  console.log(`Headers: ${JSON.stringify(req.headers)}`);
-  // You can log other request details as needed
-  next();
-});
 
 //using cors
 app.use(cors(corsoption));
+
+// Set the Access-Control-Allow-Origin header
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 //Importing  Routes
- 
+
 const post = require("./routes/post");
 const user = require("./routes/user");
 const admin = require("./routes/admin");
@@ -41,27 +42,22 @@ const message = require("./routes/message");
 app.use("/api/v1", post);
 app.use("/api/v1", user);
 app.use("/api/v1/admin", admin);
-app.use("/api/v1/chat",chat);
-app.use("/api/v1/message",message);
+app.use("/api/v1/chat", chat);
+app.use("/api/v1/message", message);
 
 // ---------------Deployment----------------------------
 
 const __dirname1 = path.resolve();
-if(process.env.NODE_ENV==='production'){
-
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname1, "/frontend/build")));
-  app.get("*",(req,res)=>{
-     res.sendFile(path.resolve(__dirname1,"frontend","build","index.html"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
   });
-
-}else{
-
-  app.get("/", (req,res)=>{
+} else {
+  app.get("/", (req, res) => {
     res.send("API is Running Successfully");
   });
-
 }
-
 
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
 
