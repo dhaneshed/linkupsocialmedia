@@ -11,7 +11,7 @@ export const adminReducer = createReducer(initialState,{
   AdminLoginSuccess: (state, action) => {
     state.loading = false;
     state.admin = action.payload;
-    state.isAdminAuthenticated = true;
+    state.isAdminAuthenticated = action.payload!==undefined && action.payload!==null;
   },
   AdminLoginFailure: (state, action) => {
     state.loading = false;
