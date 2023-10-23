@@ -44,7 +44,9 @@ function App() {
 
   const socket = useRef();
 
-  socket.current = io("https://linkupsocial.online");
+  const socketURL = process.env.REACT_APP_ORIGIN;
+
+  socket.current = io(socketURL);
 
   useEffect(() => {
   // Listen for 'user-blocked' event

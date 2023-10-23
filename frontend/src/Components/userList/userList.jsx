@@ -13,7 +13,8 @@ export default function UserList() {
   const [sortModel, setSortModel] = useState([]);
   const socket = useRef();
   const dispatch = useDispatch();
-  socket.current = io("https://linkupsocial.online/");
+  const socketURL = process.env.REACT_APP_ORIGIN;
+  socket.current = io(socketURL);
 
   useEffect(() => {
     dispatch(adminViewUsers());
@@ -29,7 +30,7 @@ export default function UserList() {
   }, [users]);
 
   const handleDelete = (id) => {
-    setData(data?.filter((item) => item?.id !== id));
+    setData(data.filter((item) => item.id !== id));
   };
 
 
@@ -53,7 +54,7 @@ export default function UserList() {
     
   };
 
-  const getRowId = (row) => row?._id; // Assuming `_id` is the unique property
+  const getRowId = (row) => row._id; // Assuming `_id` is the unique property
 
   const columns = [
     {
@@ -63,8 +64,8 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src={params?.row?.avatar.url} alt="" />
-            {params?.row?.name}
+            <img className="userListImg" src={params.row.avatar.url} alt="" />
+            {params.row.name}
           </div>
         );
       },
@@ -76,7 +77,7 @@ export default function UserList() {
       width: 120,
       renderCell: (params) => {
         return (
-          <div className="userListUser">{params?.row?.followers.length}</div>
+          <div className="userListUser">{params.row.followers.length}</div>
         );
       },
     },
@@ -86,7 +87,7 @@ export default function UserList() {
       width: 120,
       renderCell: (params) => {
         return (
-          <div className="userListUser">{params?.row?.following.length}</div>
+          <div className="userListUser">{params.row.following.length}</div>
         );
       },
     },
@@ -95,7 +96,7 @@ export default function UserList() {
       headerName: "Posts",
       width: 120,
       renderCell: (params) => {
-        return <div className="userListUser">{params?.row?.posts.length}</div>;
+        return <div className="userListUser">{params.row.posts.length}</div>;
       },
     },
     {
@@ -106,17 +107,17 @@ export default function UserList() {
         return (
           <>
        
-            {params?.row?.isBlocked ? (
+            {params.row.isBlocked ? (
               <button
                 className="userListEdit"
-                onClick={() => handleUnblockUser(params?.row?._id)}
+                onClick={() => handleUnblockUser(params.row._id)}
               >
                 Activate
               </button>
             ) : (
               <button
                 className="userListDelete"
-                onClick={() => handleBlockUser(params?.row?._id)}
+                onClick={() => handleBlockUser(params.row._id)}
               >
                 Block
               </button>
@@ -132,7 +133,7 @@ export default function UserList() {
     setSortModel(newModel);
     // Sort the data accordingly
     const sortedData = [...data];
-    newModel?.forEach((model) => {
+    newModel.forEach((model) => {
       const { field, sort } = model;
       sortedData.sort((a, b) => {
         const aValue = a[field];

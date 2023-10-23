@@ -29,7 +29,7 @@ const ChartView = () => {
       try {
          const {data} = await userCount();
         
-         setTotalUserCount(data?.totalUsers);
+         setTotalUserCount(data.totalUsers);
          
       } catch (error) {
          console.log(error);
@@ -42,7 +42,7 @@ const ChartView = () => {
    const getPostCount = async ()=>{
       try {
          const {data} = await postCount();
-         setTotalPostCount(data?.totalPosts);
+         setTotalPostCount(data.totalPosts);
          
       } catch (error) {
          console.log(error);
@@ -56,7 +56,7 @@ const ChartView = () => {
     try {
        const {data} = await commentCount();
       
-       setTotalCommentCount(data?.totalComments);
+       setTotalCommentCount(data.totalComments);
        
     } catch (error) {
        console.log(error);
@@ -69,7 +69,7 @@ const ChartView = () => {
  const getReportCount = async ()=>{
   try {
     const {data} = await reportCount();
-    setTotalReportCount(data?.totalReports);
+    setTotalReportCount(data.totalReports);
     
     
   } catch (error) {
@@ -83,9 +83,8 @@ const ChartView = () => {
 const getUserData = async ()=>{
   try {
     const {data} = await chartData();
-    console.log("Post creation data is .....",data?.postCounts);
-    setUserData(data?.userData);
-    setPostData(data?.postCounts);
+    setUserData(data.userData);
+    setPostData(data.postCounts);
     
   } catch (error) {
     console.log(error);
@@ -97,23 +96,22 @@ getUserData();
    }, [])
 
   //   // Calculate postCount based on ISO week
-  const postCountByWeek = postData?.reduce((acc, post) => {
-    const week = post?._id?.week;
+  const postCountByWeek = postData.reduce((acc, post) => {
+    const week = post._id.week;
     if (!acc[week]) {
       acc[week] = 0;
     }
-    acc[week] += post?.count;
+    acc[week] += post.count;
     return acc;
   }, {});
 
-   const data = userData?.map((user)=>({
+   const data = userData.map((user)=>({
   
-    week:user?._id?.week,
-    userRegistration:user?.count,
-    postsCreated: postCountByWeek[user?._id?.week] || 0,
+    week:user._id.week,
+    userRegistration:user.count,
+    postsCreated: postCountByWeek[user._id.week] || 0,
    }));
    
-   console.log("The data is........",data);
   return (
 
       <main className="main-container">

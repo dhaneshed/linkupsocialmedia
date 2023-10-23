@@ -13,16 +13,16 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
   const scroll = useRef();
 
   useEffect(() => {
-    if (receiveMessage !== null && receiveMessage?.chatId === chat?._id) {
+    if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
       setMessages((prevMessages) => [...prevMessages, receiveMessage]);
 
     }
-  }, [receiveMessage,chat?._id]);
+  }, [receiveMessage,chat._id]);
 
   //fetching data from the header
 
   useEffect(() => {
-    const userId = chat?.members?.find((id) => id !== currentUser);
+    const userId = chat.members.find((id) => id !== currentUser);
     const getUserData = async () => {
       try {
         const { data } = await getUser(userId);
@@ -39,7 +39,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const { data } = await getMessages(chat?._id);
+        const { data } = await getMessages(chat._id);
         setMessages(data);
       } catch (error) {
         console.log(error);
@@ -57,7 +57,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
     const message = {
       senderId: currentUser,
       text: newMessage,
-      chatId: chat?._id,
+      chatId: chat._id,
     };
 
     //send message to database
@@ -70,14 +70,14 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
       console.log(error);
     }
     //send message to socket server
-    const receiverId = chat?.members?.find((id) => id !== currentUser);
+    const receiverId = chat.members.find((id) => id !== currentUser);
     setSendMessage({ ...message, receiverId });
   };
 
   // Always scroll to the last message
   useEffect(() => {
 
-    scroll.current?.scrollIntoView({behavior:"smooth"})
+    scroll.current.scrollIntoView({behavior:"smooth"})
     
   }, [messages])
   
@@ -91,13 +91,13 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
             <div className="follower">
               <div>
                 <img
-                  src={userData?.user?.avatar?.url}
+                  src={userData.user.avatar.url}
                   alt=""
                   className="followerImage"
                   style={{ width: "50px", height: "50px" }}
                 />
                 <div className="name" style={{ fontSize: "0.8rem" }}>
-                  <span>{userData?.user?.name}</span>
+                  <span>{userData.user.name}</span>
                 </div>
               </div>
             </div>
@@ -107,20 +107,20 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
           {/* chatbox Messages */}
           <div className="chat-body">
 
-            {(messages|| [])?.map((message,index) => (
+            {messages.map((message,index) => (
             
               <div ref={scroll}
-              key={`${message?._id}-${message?.createdAt || 'defaultCreatedAt'}-${message?.updatedAt || 'defaultUpdatedAt'}-${index}`}
+              key={`${message._id}-${message.createdAt || 'defaultCreatedAt'}-${message.updatedAt || 'defaultUpdatedAt'}-${index}`}
                 className={
-                  message?.senderId === currentUser
+                  message.senderId === currentUser
                     ? "message own"
                     : "message "
                 }
               >
                 <div>
-                <span  >{message?.text}</span>
+                <span  >{message.text}</span>
                 <span className="message-divider"> · </span> 
-                <span className="message-time">{format(message?.createdAt)}</span>
+                <span className="message-time">{format(message.createdAt)}</span>
                 </div>
                 
               </div>

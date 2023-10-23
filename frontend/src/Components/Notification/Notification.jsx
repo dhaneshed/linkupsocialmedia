@@ -9,9 +9,9 @@ const Notification = () => {
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
   const [socketConnected, setSocketConnected] = useState(false); // Track socket connection
-
+  const socketURL = process.env.REACT_APP_ORIGIN;
   useEffect(() => {
-    const newSocket = io("https://linkupsocial.online/");
+    const newSocket = io(socketURL);
     newSocket.on("connect",()=>{
       setSocket(newSocket);
       setSocketConnected(true);
@@ -24,13 +24,12 @@ const Notification = () => {
 
   useEffect(() => {
     if (socketConnected) {
-      socket?.emit("newUser", user?.name);
+      socket.emit("newUser", user.name);
       socket.on("getNotification", (data) => {
-        console.log("Notification received:", data);
         setNotifications((prev) => [...prev, data]);
       });
     }
-  }, [socketConnected,socket,user?.name]);
+  }, [socketConnected,socket,user.name]);
 
   
 
@@ -59,14 +58,14 @@ const Notification = () => {
       <div className="icons">
         <div className="icon" onClick={() => setOpen(!open)}>
           <img src={Noti} className="iconImg" alt="" />
-          {notifications?.length > 0 && (
-            <div className="counter">{notifications?.length}</div>
+          {notifications.length > 0 && (
+            <div className="counter">{notifications.length}</div>
           )}
         </div>
       </div>
       {open && (
         <div className="notifications">
-          {notifications?.map((n, index) => (
+          {notifications.map((n, index) => (
             <div key={index}>{displayNotification(n)}</div>
           ))}
           <button className="nButton" onClick={handleRead}>

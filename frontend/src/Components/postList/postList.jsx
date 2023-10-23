@@ -9,7 +9,6 @@ export default function PostList() {
   const { posts} = useSelector(
     (state) => state.reportPosts
   );
-  console.log("Reported Posts in postList is......",posts);
   const [data, setData] = useState([]);
   const [sortModel, setSortModel] = useState([]);
   const dispatch = useDispatch();
@@ -43,7 +42,7 @@ export default function PostList() {
 
    
 
-     const getRowId = (row) => row?._id; // Assuming `_id` is the unique property
+     const getRowId = (row) => row._id; // Assuming `_id` is the unique property
 
   
   const columns = [
@@ -54,8 +53,8 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-             <img className="userListImg" src={params?.row?.owner?.avatar?.url} alt="" /> 
-            {params?.row?.owner?.name}
+             <img className="userListImg" src={params.row.owner.avatar.url} alt="" /> 
+            {params.row.owner.name}
           </div>
         );
       },
@@ -68,7 +67,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-                       <img className="userListImg" src={params?.row?.image?.url} alt="" /> 
+                       <img className="userListImg" src={params.row.image.url} alt="" /> 
           </div>
         );
       },
@@ -80,7 +79,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params?.row?.likes?.length} 
+            {params.row.likes.length} 
           </div>
         );
       },
@@ -92,7 +91,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params?.row?.comments?.length}
+            {params.row.comments.length}
           </div>
         );
       },
@@ -104,7 +103,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params?.row?.reports?.length} 
+            {params.row.reports.length} 
           </div>
         );
       },
@@ -119,7 +118,7 @@ export default function PostList() {
           <>
           <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params?.row?.owner?._id,params?.row?._id)}
+              onClick={() => handleDelete(params.row.owner._id,params.row._id)}
             />
             
           </>

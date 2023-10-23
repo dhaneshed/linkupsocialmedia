@@ -21,8 +21,6 @@ const CommentCard = ({
   
 
   const { user } = useSelector((state) => state.user);
-  console.log("The User Id is........",userId);
-  console.log("The  user is......",user?._id);
    const [replyFormOpen, setReplyFormOpen] = useState(false);
   const [replyValue, setReplyValue] = useState("");
     const dispatch = useDispatch();
@@ -70,7 +68,7 @@ const CommentCard = ({
         <Button onClick={deleteCommentHandle}>
           <Delete />
         </Button>
-      ) : userId === user?._id ? (
+      ) : userId === user._id ? (
         <Button onClick={deleteCommentHandle}>
           <Delete />
         </Button>

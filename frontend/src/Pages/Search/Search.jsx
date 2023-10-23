@@ -16,8 +16,9 @@ const Search = () => {
 
   const dispatch = useDispatch();
    const socket = useRef();
+   const socketURL = process.env.REACT_APP_ORIGIN;
 
-  socket.current = io("https://linkupsocial.online/");
+  socket.current = io(socketURL);
 
   useEffect(() => {
     // Listen for 'user-blocked' event

@@ -65,21 +65,22 @@ const Post = ({
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
+  const socketURL = process.env.REACT_APP_ORIGIN;
 
   useEffect(() => {
-    setSocket(io("https://linkupsocial.online/"));
+    setSocket(io(socketURL));
   }, []);
 
   const renderReplies = (comment) => {
-  if (comment?.replies && Array.isArray(comment?.replies)) {
-    return comment?.replies?.map((reply) => (
+  if (comment.replies && Array.isArray(comment.replies)) {
+    return comment.replies.map((reply) => (
       <ReplyCard
-        key={reply?._id}
-        userId={reply?.user?._id}
-        name={reply?.user?.name}
-        avatar={reply?.user?.avatar?.url}
-        comment={reply?.comment}
-        commentId={reply?._id}
+        key={reply._id}
+        userId={reply.user._id}
+        name={reply.user.name}
+        avatar={reply.user.avatar.url}
+        comment={reply.comment}
+        commentId={reply._id}
         postId={postId}
         isAccount={isAccount}
         isAdmin={isAdmin}
@@ -104,10 +105,10 @@ const Post = ({
         dispatch(getFollowingPosts());
       }
       // Check if the user liking the post is not the post owne
-      if (ownerId !== user?._id) {
+      if (ownerId !== user._id) {
         // Send a like notification
         socket.emit("sendNotification", {
-          senderName: user?.name, // Assuming you have a name field in the user object
+          senderName: user.name, // Assuming you have a name field in the user object
           receiverName: ownerName,
           type: 1, // Like notification type
         });
@@ -126,10 +127,10 @@ const Post = ({
     }
 
     // Check if the user commenting the post is not the post owner
-    if (ownerId !== user?._id) {
+    if (ownerId !== user._id) {
       // Send a comment notification
       socket.emit("sendNotification", {
-        senderName: user?.name, // Assuming you have a name field in the user object
+        senderName: user.name, // Assuming you have a name field in the user object
         receiverName: ownerName,
         type: 2, // Comment notification type
       });
@@ -149,12 +150,12 @@ const Post = ({
   useEffect(() => {
     if (!isAdmin) {
       likes.forEach((item) => {
-        if (item?._id === user?._id) {
+        if (item._id === user._id) {
           setLiked(true);
         }
       });
     }
-  }, [likes, user?._id]);
+  }, [likes, user._id]);
 
   const updateCaptionHandler = (e) => {
     e.preventDefault();
@@ -228,9 +229,9 @@ const Post = ({
           margin: "1vmax 2vmax",
         }}
         onClick={() => setLikesUser(!likesUser)}
-        disabled={likes?.length === 0 ? true : false}
+        disabled={likes.length === 0 ? true : false}
       >
-        <Typography>{likes?.length} Likes</Typography>
+        <Typography>{likes.length} Likes</Typography>
       </button>
       <div className="postFooter">
         <Button onClick={handleLike}>
@@ -260,12 +261,12 @@ const Post = ({
         <div className="DialogBox">
           <Typography variant="h4">Liked By</Typography>
 
-          {likes?.map((like) => (
+          {likes.map((like) => (
             <User
-              key={like?._id}
-              userId={like?._id}
-              name={like?.name}
-              avatar={like?.avatar?.url}
+              key={like._id}
+              userId={like._id}
+              name={like.name}
+              avatar={like.avatar.url}
             />
           ))}
         </div>
@@ -291,16 +292,16 @@ const Post = ({
             </form>
           )}
 
-          {comments?.length > 0 ? (
-            comments?.map((item) => (
-               <React.Fragment key={item?._id}>
+          {comments.length > 0 ? (
+            comments.map((item) => (
+               <React.Fragment key={item._id}>
               <CommentCard
-                userId={item?.user?._id}
-                name={item?.user?.name}
-                avatar={item?.user?.avatar?.url}
-                comment={item?.comment}
-                commentId={item?._id}
-                key={item?._id}
+                userId={item.user._id}
+                name={item.user.name}
+                avatar={item.user.avatar.url}
+                comment={item.comment}
+                commentId={item._id}
+                key={item._id}
                 postId={postId}
                 isAccount={isAccount}
                 isAdmin={isAdmin}
@@ -325,12 +326,12 @@ const Post = ({
           {reports.length > 0 ? (
             reports.map((item) => (
               <ReportCard
-                userId={item?.user?._id}
-                name={item?.user?.name}
-                avatar={item?.user?.avatar?.url}
-                comment={item?.report}
-                commentId={item?._id}
-                key={item?._id}
+                userId={item.user._id}
+                name={item.user.name}
+                avatar={item.user.avatar.url}
+                comment={item.report}
+                commentId={item._id}
+                key={item._id}
                 postId={postId}
                 isAccount={isAccount}
               />

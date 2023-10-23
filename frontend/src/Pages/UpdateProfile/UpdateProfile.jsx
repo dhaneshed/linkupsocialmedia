@@ -13,10 +13,10 @@ const UpdateProfile = () => {
     message,
   } = useSelector((state) => state.like);
 
-  const [name, setName] = useState(user?.name);
-  const [email, setEmail] = useState(user?.email);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
   const [avatar, setAvatar] = useState("");
-  const [avatarPrev, setAvatarPrev] = useState(user?.avatar?.url);
+  const [avatarPrev, setAvatarPrev] = useState(user.avatar.url);
 
   const dispatch = useDispatch();
 
