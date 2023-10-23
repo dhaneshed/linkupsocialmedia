@@ -21,16 +21,10 @@ var corsoption = {
 //using cors
 app.use(cors(corsoption));
 
-// Set the Access-Control-Allow-Origin header
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  next();
-});
 app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-//Importing  Routes
 
 const post = require("./routes/post");
 const user = require("./routes/user");
