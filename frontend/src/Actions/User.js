@@ -2,6 +2,7 @@ import {UserApi} from "../api/UserApi";
 
 
 export const loginUser = (email, password) => async (dispatch) => {
+  console.log("Login User is.........");
   try {
     dispatch({
       type: "LoginRequest",
@@ -17,6 +18,8 @@ export const loginUser = (email, password) => async (dispatch) => {
       }
     );
 
+    console.log("data is.....",data);
+
     dispatch({
       type: "LoginSuccess",
       payload: data.user,
@@ -26,6 +29,7 @@ export const loginUser = (email, password) => async (dispatch) => {
       type: "LoginFailure",
       payload: error.response.data.message,
     });
+    console.log("Error is......",error);
   }
 };
 
