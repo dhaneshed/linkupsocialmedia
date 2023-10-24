@@ -8,7 +8,7 @@ import Conversation from "../../Components/Conversation/Conversation";
 import ChatBox from "../../Components/ChatBox/ChatBox";
 import { io } from "socket.io-client";
 import { Button } from "@mui/material";
-import { getAllUsers, logoutUser } from "../../Actions/User";
+import { getAllUsers, loadUser, logoutUser } from "../../Actions/User";
 import Talk from "../../Components/Talk/Talk"
 import { Navigate } from "react-router-dom";
 
@@ -21,7 +21,9 @@ const Chat = () => {
   const [sendMessage, setSendMessage] = useState(null);
   const [receiveMessage, setReceiveMessage] = useState({});
   const socket = useRef();
+  const dispatch = useDispatch();
   const socketURL = process.env.REACT_APP_ORIGIN;
+  
 
   socket.current = io(socketURL);
 
@@ -47,6 +49,7 @@ const Chat = () => {
   //sending message to the socket server
 
   useEffect(() => {
+    
     if (sendMessage !== null) {
       socket.current.emit("send-message", sendMessage);
     }
@@ -59,7 +62,7 @@ const Chat = () => {
     });
   }, [user]);
 
-  const dispatch = useDispatch();
+ 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(getAllUsers(name));
