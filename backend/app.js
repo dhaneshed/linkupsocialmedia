@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
-var morgan = require('morgan');
+const logger = require('morgan');
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: "backend/config/config.env" });
@@ -21,7 +21,7 @@ var corsoption = {
 
 //using cors
 app.use(cors(corsoption));
-app.use(morgan('combined'));
+app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
