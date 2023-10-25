@@ -13,7 +13,7 @@ export default function UserList() {
   const [sortModel, setSortModel] = useState([]);
   const socket = useRef();
   const dispatch = useDispatch();
-  const socketURL = process.env.REACT_APP_ORIGIN;
+  const socketURL = process.env.REACT_APP_ORIGIN + '/socket.io';
   socket.current = io(socketURL);
 
   useEffect(() => {

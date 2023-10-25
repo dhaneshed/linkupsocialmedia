@@ -28,9 +28,9 @@ const Talk = ({userId, name, avatar}) => {
       <div className="follower conversation">
         <div>
           
-          <img src={userData.user.avatar.url } alt="" className="followerImage"  style={{width:'50px', height:'50px'}} />
+          <img src={userData?.user?.avatar?.url } alt="" className="followerImage"  style={{width:'50px', height:'50px'}} />
           <div className="name" style={{fontSize:"0.8rem"}}>
-            <span>{userData.user.name}</span>
+            <span>{userData?.user?.name}</span>
            
           </div>
         </div>

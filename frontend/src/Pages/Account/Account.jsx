@@ -15,7 +15,7 @@ const Account = () => {
   const dispatch = useDispatch();
 
    const socket = useRef();
-   const socketURL = process.env.REACT_APP_ORIGIN;
+   const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
 
   socket.current = io(socketURL);
 

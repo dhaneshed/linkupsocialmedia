@@ -9,7 +9,7 @@ const Notification = () => {
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
   const [socketConnected, setSocketConnected] = useState(false); // Track socket connection
-  const socketURL = process.env.REACT_APP_ORIGIN;
+  const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
   useEffect(() => {
     const newSocket = io(socketURL);
     newSocket.on("connect",()=>{

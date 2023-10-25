@@ -65,7 +65,7 @@ const Post = ({
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const socketURL = process.env.REACT_APP_ORIGIN;
+  const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
 
   useEffect(() => {
     setSocket(io(socketURL));
