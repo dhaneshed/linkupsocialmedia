@@ -124,7 +124,7 @@ exports.getPostofFollowing = async (req, res) => {
 
     const posts = await Post.find({
       owner: {
-        $in: user?.following,
+        $in: user.following,
       },
     }).populate("owner likes comments.user comments.replies.user");
   
