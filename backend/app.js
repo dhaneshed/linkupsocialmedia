@@ -3,27 +3,32 @@ const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
-
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: "backend/config/config.env" });
 }
+require("dotenv").config({ path: "./.env" });
 
 //Using middlewares
 
 var corsoption = {
-  origin: process.env.ORIGIN, //origin from where you requesting
+  origin: [
+    process.env.ORIGIN,
+    "http://localhost:8080/socket.io",
+    "https://linkupsocial.online/socket.io",
+    "http://linkupsocial.online/socket.io",
+    "https://linkupsocial.online",
+    "http://linkupsocial.online",
+  ], //origin from where you requesting
   credentials: true,
   methods: "POST, GET, OPTIONS, PUT, DELETE", // Define the allowed HTTP methods
   allowedHeaders: "Content-Type, X-Auth-Token, Origin, Authorization", // Define the allowed headers
   optionSuccessStatus: 200,
 };
-
 //using cors
 app.use(cors(corsoption));
 app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
-
 
 const post = require("./routes/post");
 const user = require("./routes/user");

@@ -12,7 +12,7 @@ const UserBlockedMiddleware = ({ children }) => {
 
   const socket = useRef();
 
-  const socketURL = process.env.REACT_APP_ORIGIN + '/socket.io';
+  const socketURL = process.env.REACT_APP_ORIGIN + "/socket.io";
 
   socket.current = io(socketURL);
 
@@ -30,13 +30,10 @@ const UserBlockedMiddleware = ({ children }) => {
     };
   }, [dispatch]);
 
-
-
   useEffect(() => {
     dispatch(blockStatus());
   }, [dispatch, user?.isBlocked]);
   // Check if the user is authenticated and blocked
- 
 
   // Check if the user is authenticated and blocked
   if (isAuthenticated && user?.isBlocked) {
