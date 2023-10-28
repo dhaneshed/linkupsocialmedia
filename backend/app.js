@@ -7,7 +7,6 @@ const path = require("path");
 //   require("dotenv").config({ path: "backend/config/config.env" });
 // }
 require("dotenv").config();
-
 //Using middlewares
 
 var corsoption = {

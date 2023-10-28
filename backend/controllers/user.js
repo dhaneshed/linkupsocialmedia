@@ -49,12 +49,10 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-  
 
     const user = await User.findOne({ email })
       .select("+password")
       .populate("posts followers following");
-
 
     if (!user) {
       return res.status(400).json({
@@ -74,13 +72,10 @@ exports.login = async (req, res) => {
 
     const token = await user.generateToken();
 
-  
-
     const options = {
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       httpOnly: true,
     };
-  
 
     res.status(200).cookie("token", token, options).json({
       success: true,
@@ -126,8 +121,12 @@ exports.followUser = async (req, res) => {
     }
 
     if (loggedInUser?.following?.includes(userToFollow?._id)) {
-      const indexfollowing = loggedInUser?.following?.indexOf(userToFollow?._id);
-      const indexfollowers = userToFollow?.followers?.indexOf(loggedInUser?._id);
+      const indexfollowing = loggedInUser?.following?.indexOf(
+        userToFollow?._id
+      );
+      const indexfollowers = userToFollow?.followers?.indexOf(
+        loggedInUser?._id
+      );
 
       loggedInUser?.following?.splice(indexfollowing, 1);
       userToFollow?.followers?.splice(indexfollowers, 1);
@@ -317,7 +316,6 @@ exports.deleteMyProfile = async (req, res) => {
 };
 
 exports.myProfile = async (req, res) => {
-
   try {
     const user = await User.findById(req.user?._id).populate(
       "posts followers following"
@@ -328,8 +326,6 @@ exports.myProfile = async (req, res) => {
       user,
     });
   } catch (error) {
-
-  
     res.status(500).json({
       success: false,
       message: error.message,
@@ -340,10 +336,8 @@ exports.myProfile = async (req, res) => {
 exports.blockStatus = async (req, res) => {
   console.log("Block Status...........");
   try {
-
-    
     const user = await User.findById(req.user?._id);
-    console.log("Block Status user is........",user);
+    console.log("Block Status user is........", user);
     res.status(200).json({
       success: true,
       user,
@@ -358,7 +352,6 @@ exports.blockStatus = async (req, res) => {
 
 exports.getUserProfile = async (req, res) => {
   try {
-
     const user = await User.findById(req.params.id).populate(
       "posts followers following"
     );
@@ -420,8 +413,6 @@ exports.forgotPassword = async (req, res) => {
     // )}/password/reset/${resetPasswordToken}`;
 
     const resetUrl = `http://localhost:3000/password/reset/${resetPasswordToken}`;
-
-
     const message = `Reset Your Password by clicking on the link below: \n\n  ${resetUrl}`;
 
     try {
@@ -446,7 +437,7 @@ exports.forgotPassword = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log("The forgot password error is .....",error);
+    console.log("The forgot password error is .....", error);
     res.status(500).json({
       success: false,
       message: error.message,

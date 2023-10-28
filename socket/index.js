@@ -5,7 +5,7 @@ const io = require("socket.io")(8080, {
     transports: ["websocket", "polling"],
     credentials: true,
   },
-  allowEIO3: true
+  allowEIO3: true,
 });
 
 let activeUsers = [];
@@ -35,15 +35,15 @@ io.on("connection", (socket) => {
         socketId: socket.id,
       });
     }
+    console.log("activeUsers is.....",activeUsers);
     io.emit("get-users", activeUsers);
   });
 
-   // Listen for 'user-blocked' event
-  socket.on('user-blocked', ({ userId }) => {
+  // Listen for 'user-blocked' event
+  socket.on("user-blocked", ({ userId }) => {
     // Broadcast the event to all clients
-    io.emit('user-blocked', { userId });
+    io.emit("user-blocked", { userId });
   });
-
 
   socket.on("newUser", (username) => {
     addNewUser(username, socket.id);
@@ -55,9 +55,8 @@ io.on("connection", (socket) => {
       senderName,
       type,
     });
-   
+  
   });
-
   //send Message
   socket.on("send-message", (data) => {
     const { receiverId } = data;
