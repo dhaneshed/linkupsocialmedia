@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "concurrently \"npm run root\" \"npm run socket\"",
-    "root":"node backend/server.js",
+    "root": "node backend/server.js",
     "dev": "nodemon backend/server.js",
     "build": "npm install  && cd frontend && npm install  && npm run build ",
-    "socket":"cd socket && npm start"
+    "socket": "cd socket && npm start"
   },
   "keywords": [],
   "author": "",

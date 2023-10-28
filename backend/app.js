@@ -8,6 +8,8 @@ const path = require("path");
 // }
 require("dotenv").config();
 //Using middlewares
+const morgan = require("morgan")
+
 
 var corsoption = {
   origin: [
@@ -26,6 +28,7 @@ var corsoption = {
 //using cors
 app.use(cors(corsoption));
 app.use(cookieParser());
+app.use(morgan("dev"));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
