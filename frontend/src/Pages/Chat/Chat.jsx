@@ -22,8 +22,8 @@ const Chat = () => {
   const [receiveMessage, setReceiveMessage] = useState({});
   const socket = useRef();
   const dispatch = useDispatch();
-  const socketURL = process.env.REACT_APP_ORIGIN + '/socket.io';
-  
+  const socketURL = 'https://linkupsocial.online/socket.io';
+
 
   socket.current = io(socketURL);
 
@@ -44,12 +44,12 @@ const Chat = () => {
 
   const { users, loading } = useSelector((state) => state.allUsers);
 
- 
+
 
   //sending message to the socket server
 
   useEffect(() => {
-    
+
     if (sendMessage !== null) {
       socket.current.emit("send-message", sendMessage);
     }
@@ -62,7 +62,7 @@ const Chat = () => {
     });
   }, [user]);
 
- 
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(getAllUsers(name));
@@ -92,7 +92,7 @@ const Chat = () => {
     getChats();
   }, [user]);
 
-     // Filter out users who are already in the chat list
+  // Filter out users who are already in the chat list
   const filteredUsers = users?.filter((member) => {
     // Check if the member's ID is not in any of the chat's members array
     return !chats?.some((chat) => chat?.members?.includes(member?._id));
@@ -101,37 +101,37 @@ const Chat = () => {
   const handleTalkClick = async (userId) => {
     try {
 
-       // Check if a chat with this user is already in progress
-    if (currentChat?.members?.includes(userId)) {
-      // Chat with this user already exists, do nothing
-      return;
-    }
+      // Check if a chat with this user is already in progress
+      if (currentChat?.members?.includes(userId)) {
+        // Chat with this user already exists, do nothing
+        return;
+      }
 
-    // Check if a chat with this user is being created
-    if (sendMessage === null) {
-      // Set the user ID to initiate chat creation
-      setSendMessage(userId);
-    } else {
-      // A chat creation is already in progress, do nothing
-      return;
-    }
+      // Check if a chat with this user is being created
+      if (sendMessage === null) {
+        // Set the user ID to initiate chat creation
+        setSendMessage(userId);
+      } else {
+        // A chat creation is already in progress, do nothing
+        return;
+      }
 
-      const existingChat = chats.find((chat)=>
-      chat?.members?.includes(user?._id) && chat?.members?.includes(userId));
+      const existingChat = chats.find((chat) =>
+        chat?.members?.includes(user?._id) && chat?.members?.includes(userId));
 
 
-      if (user?._id !== userId ) {
-        if(existingChat){
+      if (user?._id !== userId) {
+        if (existingChat) {
           setCurrentChat(existingChat);
 
-        }else{
-        const response = await newChat(user?._id, userId);
-        const newChatData = response?.data;
+        } else {
+          const response = await newChat(user?._id, userId);
+          const newChatData = response?.data;
 
-        setCurrentChat(newChatData);
+          setCurrentChat(newChatData);
         }
         setSendMessage(null);
-        
+
       }
     } catch (error) {
       console.error("Error creating chat:", error);
@@ -165,13 +165,13 @@ const Chat = () => {
                 users &&
                 user &&
                 filteredUsers?.map((member) => (
-                  
+
                   <div
                     key={member?._id}
                     onClick={() => handleTalkClick(member?._id)}
                   >
 
-                  
+
                     {member?._id !== user?._id && (
                       <Talk
                         key={member?._id}

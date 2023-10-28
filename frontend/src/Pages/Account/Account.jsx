@@ -15,7 +15,7 @@ const Account = () => {
   const dispatch = useDispatch();
 
    const socket = useRef();
-   const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
+  const socketURL = 'https://linkupsocial.online/socket.io';
 
   socket.current = io(socketURL);
 

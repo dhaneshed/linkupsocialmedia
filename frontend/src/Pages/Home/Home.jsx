@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 const Home = () => {
   const dispatch = useDispatch();
   const socket = useRef();
-  const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
+  const socketURL = 'https://linkupsocial.online/socket.io';
 
   socket.current = io(socketURL);
 
@@ -42,7 +42,7 @@ const Home = () => {
   );
 
 
-  const {error:likeError,message}  = useSelector((state)=>state.like);
+  const { error: likeError, message } = useSelector((state) => state.like);
 
   useEffect(() => {
     dispatch(getFollowingPosts());
@@ -50,9 +50,9 @@ const Home = () => {
   }, [dispatch]);
 
 
-  
 
-  return  usersLoading === true ? (
+
+  return usersLoading === true ? (
     <Loader />
   ) : (
     <div className="home">
@@ -71,7 +71,7 @@ const Home = () => {
               ownerImage={post.owner.avatar.url}
               ownerName={post.owner.name}
               ownerId={post.owner._id}
-              
+
             />
           ))
         ) : (
@@ -79,11 +79,11 @@ const Home = () => {
         )}
       </div>
       <div className="homeright">
-      <Typography>Contacts</Typography>
+        <Typography>Contacts</Typography>
         {users && users.length > 0 ? (
           users.map((user) => (
             <User
-             key={user._id}
+              key={user._id}
               userId={user._id}
               name={user.name}
               avatar={user.avatar.url

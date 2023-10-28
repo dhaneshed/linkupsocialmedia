@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./NewPost.css";
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { createNewPost } from "../../Actions/Post";
 import { loadUser, logoutUser } from "../../Actions/User";
 import { io } from "socket.io-client";
@@ -13,7 +13,7 @@ const NewPost = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
   const socket = useRef();
-  const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
+  const socketURL = 'https://linkupsocial.online/socket.io';
 
   socket.current = io(socketURL);
 
@@ -33,7 +33,7 @@ const NewPost = () => {
     };
   }, []);
 
-  const { loading, error, message} = useSelector((state) => state.like);
+  const { loading, error, message } = useSelector((state) => state.like);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -49,15 +49,15 @@ const NewPost = () => {
     };
   };
 
-  const submitHandler =async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    await dispatch(createNewPost(caption,image));
+    await dispatch(createNewPost(caption, image));
     dispatch(loadUser());
-    navigate("/account"); 
+    navigate("/account");
   };
-  
 
-  
+
+
 
   return (
     <div className="newPost">

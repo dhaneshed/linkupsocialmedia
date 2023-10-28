@@ -48,9 +48,9 @@ const Post = ({
   isAccount = false,
   isAdmin = false,
 }) => {
- 
 
- 
+
+
   const [socket, setSocket] = useState(null);
   const [liked, setLiked] = useState(false);
   const [likesUser, setLikesUser] = useState(false);
@@ -61,34 +61,34 @@ const Post = ({
   const [reportPostToggle, setReportPostToggle] = useState(false);
   const [reportToggle, setReportToggle] = useState(false);
   const [reportPostValue, setReportPostValue] = useState("");
-  
+
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const socketURL = process.env.REACT_APP_ORIGIN+'/socket.io';
+  const socketURL = 'https://linkupsocial.online/socket.io';
 
   useEffect(() => {
     setSocket(io(socketURL));
   }, []);
 
   const renderReplies = (comment) => {
-  if (comment.replies && Array.isArray(comment.replies)) {
-    return comment.replies.map((reply) => (
-      <ReplyCard
-        key={reply._id}
-        userId={reply.user._id}
-        name={reply.user.name}
-        avatar={reply.user.avatar.url}
-        comment={reply.comment}
-        commentId={reply._id}
-        postId={postId}
-        isAccount={isAccount}
-        isAdmin={isAdmin}
-      />
-    ));
-  }
-  return null;
-};
+    if (comment.replies && Array.isArray(comment.replies)) {
+      return comment.replies.map((reply) => (
+        <ReplyCard
+          key={reply._id}
+          userId={reply.user._id}
+          name={reply.user.name}
+          avatar={reply.user.avatar.url}
+          comment={reply.comment}
+          commentId={reply._id}
+          postId={postId}
+          isAccount={isAccount}
+          isAdmin={isAdmin}
+        />
+      ));
+    }
+    return null;
+  };
 
 
 
@@ -294,21 +294,21 @@ const Post = ({
 
           {comments.length > 0 ? (
             comments.map((item) => (
-               <React.Fragment key={item._id}>
-              <CommentCard
-                userId={item.user._id}
-                name={item.user.name}
-                avatar={item.user.avatar.url}
-                comment={item.comment}
-                commentId={item._id}
-                key={item._id}
-                postId={postId}
-                isAccount={isAccount}
-                isAdmin={isAdmin}
+              <React.Fragment key={item._id}>
+                <CommentCard
+                  userId={item.user._id}
+                  name={item.user.name}
+                  avatar={item.user.avatar.url}
+                  comment={item.comment}
+                  commentId={item._id}
+                  key={item._id}
+                  postId={postId}
+                  isAccount={isAccount}
+                  isAdmin={isAdmin}
 
-              />
-              {renderReplies(item)}
-            </React.Fragment>
+                />
+                {renderReplies(item)}
+              </React.Fragment>
             ))
           ) : (
             <Typography>No Comments Yet</Typography>
