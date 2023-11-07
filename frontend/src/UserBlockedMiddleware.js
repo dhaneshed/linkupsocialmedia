@@ -12,12 +12,12 @@ const UserBlockedMiddleware = ({ children }) => {
 
   const socket = useRef();
 
-  const socketURL = process.env.REACT_APP_ORIGIN + "/socket.io";
+  const socketURL = 'https://linkupsocial.online/socket.io';
 
   socket.current = io(socketURL);
 
   useEffect(() => {
-    // Listen for 'user-blocked' event
+    // Listen for 'user-https://linkupsocial.onlinehttps://linkupsocial.onlineblocked' event
     socket.current.on("user-blocked", ({ userId }) => {
       // Handle the event here
       dispatch(logoutUser());

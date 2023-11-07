@@ -38,7 +38,8 @@ io.on("connection", (socket) => {
     console.log("activeUsers is.....",activeUsers);
     io.emit("get-users", activeUsers);
   });
-
+    
+  
   // Listen for 'user-blocked' event
   socket.on("user-blocked", ({ userId }) => {
     // Broadcast the event to all clients
@@ -57,6 +58,7 @@ io.on("connection", (socket) => {
     });
   
   });
+
   //send Message
   socket.on("send-message", (data) => {
     const { receiverId } = data;

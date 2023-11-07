@@ -29,7 +29,7 @@ const Register = () => {
     dispatch(registerUser(name, email, password, avatar));
     dispatch(loadUser());
   };
- 
+
 
   return (
     <div className="register">

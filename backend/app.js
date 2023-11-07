@@ -14,11 +14,11 @@ const morgan = require("morgan")
 var corsoption = {
   origin: [
     process.env.ORIGIN,
-    "http://localhost:8080/socket.io",
-    "https://linkupsocial.online/socket.io",
-    "http://linkupsocial.online/socket.io",
-    "https://linkupsocial.online",
-    "http://linkupsocial.online",
+    // "http://localhost:8080/socket.io",
+    // "https://linkupsocial.online/socket.io",
+    // "http://linkupsocial.online/socket.io",
+    // "https://linkupsocial.online",
+    // "http://linkupsocial.online",
   ], //origin from where you requesting
   credentials: true,
   methods: "POST, GET, OPTIONS, PUT, DELETE", // Define the allowed HTTP methods

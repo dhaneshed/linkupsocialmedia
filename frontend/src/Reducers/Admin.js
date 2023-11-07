@@ -32,6 +32,20 @@ export const adminReducer = createReducer(initialState,{
     state.error = action.payload;
     state.isAdminAuthenticated = false;
   },
+
+  AdminRegisterRequest: (state) => {
+    state.loading = true;
+  },
+  AdminRegisterSuccess: (state, action) => {
+    state.loading = false;
+    state.admin = action.payload;
+    state.isAdminAuthenticated = true;
+  },
+  AdminRegisterFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+    state.isAdminAuthenticated = false;
+  },
   
   LogoutAdminRequest: (state) => {
     state.loading = true;

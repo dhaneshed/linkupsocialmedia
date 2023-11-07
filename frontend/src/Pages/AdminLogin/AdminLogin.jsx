@@ -3,24 +3,25 @@ import "./AdminLogin.css";
 import { Typography, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAdmin } from "../../Actions/Admin";
+import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  
 
-  const {error} = useSelector((state)  => state.admin);
+
+  const { error } = useSelector((state) => state.admin);
 
   const loginHandler = (e) => {
     e.preventDefault();
 
-      dispatch(loginAdmin(email,password));
-  
-    
+    dispatch(loginAdmin(email, password));
+
+
   };
 
-  
+
 
   return (
     <div className="login">
@@ -43,9 +44,9 @@ const AdminLogin = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-     
+
         <Button type="submit">Login </Button>
-     
+
       </form>
     </div>
   );

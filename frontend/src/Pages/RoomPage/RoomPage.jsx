@@ -19,12 +19,12 @@ const RoomPage = () => {
     const zc = ZegoUIKitPrebuilt.create(kitToken);
     zc.joinRoom({
       container: element,
-      sharedLinks:[{
+      sharedLinks: [{
         name: 'Copy Link',
-        url:`${process.env.REACT_APP_ORIGIN}/room/${roomId}`
+        url: `https://linkupsocial.online/room/${roomId}`
       }],
-      scenario:{
-        mode:ZegoUIKitPrebuilt.OneONoneCall,
+      scenario: {
+        mode: ZegoUIKitPrebuilt.OneONoneCall,
       },
     });
   };
@@ -32,7 +32,7 @@ const RoomPage = () => {
     <div ref={myMeeting} />
 
   </div>;
-  
+
 };
 
 export default RoomPage;

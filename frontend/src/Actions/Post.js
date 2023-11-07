@@ -117,6 +117,7 @@ export const createNewPost = (caption, image) => async (dispatch) => {
         },
       }
     );
+    console.log("The user post data is.........",data);
     dispatch({
       type: "newPostSuccess",
       payload: data.message,

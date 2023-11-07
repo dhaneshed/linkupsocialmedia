@@ -1,50 +1,50 @@
 import "../userList/userList.css";
-import { DataGrid} from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adminReportPosts, adminUserPostDelete } from "../../Actions/Admin";
 
 export default function PostList() {
-  const { posts} = useSelector(
+  const { posts } = useSelector(
     (state) => state.reportPosts
   );
   const [data, setData] = useState([]);
   const [sortModel, setSortModel] = useState([]);
   const dispatch = useDispatch();
- 
 
-    useEffect(() => {
+
+  useEffect(() => {
     dispatch(adminReportPosts());
   }, [dispatch]);
 
-    // // Update the data state when users data changes
-    useEffect(() => {
-      if (posts) {
-        setData(posts);
-      }
+  // // Update the data state when users data changes
+  useEffect(() => {
+    if (posts) {
+      setData(posts);
+    }
 
-    }, [posts]);
+  }, [posts]);
 
-  const handleDelete = async (userId,postId) => {
+  const handleDelete = async (userId, postId) => {
     try {
 
-      await dispatch(adminUserPostDelete(userId,postId));
+      await dispatch(adminUserPostDelete(userId, postId));
       dispatch(adminReportPosts());
-      
+
     } catch (error) {
 
-      console.log("Error deleting post:",error);
-      
+      console.log("Error deleting post:", error);
+
     }
-    
+
   };
 
-   
 
-     const getRowId = (row) => row._id; // Assuming `_id` is the unique property
 
-  
+  const getRowId = (row) => row?._id; // Assuming `_id` is the unique property
+
+
   const columns = [
     {
       field: "owner",
@@ -53,8 +53,8 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-             <img className="userListImg" src={params.row.owner.avatar.url} alt="" /> 
-            {params.row.owner.name}
+            <img className="userListImg" src={params?.row?.owner?.avatar?.url} alt="" />
+            {params?.row?.owner?.name}
           </div>
         );
       },
@@ -67,7 +67,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-                       <img className="userListImg" src={params.row.image.url} alt="" /> 
+            <img className="userListImg" src={params?.row?.image?.url} alt="" />
           </div>
         );
       },
@@ -79,7 +79,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.likes.length} 
+            {params?.row?.likes?.length}
           </div>
         );
       },
@@ -91,7 +91,7 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.comments.length}
+            {params?.row?.comments?.length}
           </div>
         );
       },
@@ -103,12 +103,12 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.reports.length} 
+            {params?.row?.reports?.length}
           </div>
         );
       },
     },
-  
+
     {
       field: "action",
       headerName: "Action",
@@ -116,11 +116,11 @@ export default function PostList() {
       renderCell: (params) => {
         return (
           <>
-          <DeleteOutline
+            <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.owner._id,params.row._id)}
+              onClick={() => handleDelete(params?.row?.owner?._id, params?.row?._id)}
             />
-            
+
           </>
         );
       },

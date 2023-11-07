@@ -13,7 +13,7 @@ const NewPost = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
   const socket = useRef();
-  const socketURL = 'https://linkupsocial.online/socket.io';
+  const socketURL = 'http://localhost:8080';
 
   socket.current = io(socketURL);
 

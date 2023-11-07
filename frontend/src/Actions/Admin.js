@@ -69,6 +69,37 @@ export const logoutAdmin = () => async (dispatch) => {
   }
 };
 
+export const registerAdmin =
+  (name, email, password, avatar) => async (dispatch) => {
+    try {
+      dispatch({
+        type: "AdminRegisterRequest",
+      });
+
+      const { data } = await  AdminApi.post(
+        "/register",
+        { name, email, password, avatar },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      dispatch({
+        type: "AdminRegisterSuccess",
+        payload: data.admin,
+      });
+    } catch (error) {
+      console.log("The  Admin Register error is.....",error);
+      dispatch({
+        type: "AdminRegisterFailure",
+        payload: error.response.data.message,
+      });
+    }
+  };
+
+
 export const adminViewUsers = () => async (dispatch) => {
   try {
     dispatch({

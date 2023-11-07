@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 const Account = () => {
   const dispatch = useDispatch();
 
-   const socket = useRef();
+  const socket = useRef();
   const socketURL = 'https://linkupsocial.online/socket.io';
 
   socket.current = io(socketURL);
@@ -58,7 +58,7 @@ const Account = () => {
     dispatch(getMyPosts());
   }, [dispatch]);
 
- 
+
 
   return loading === true || userLoading === true ? (
     <Loader />

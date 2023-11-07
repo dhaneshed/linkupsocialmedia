@@ -6,7 +6,10 @@ exports.isAuthenticated = async (req, res, next) => {
 
   console.log("User Authentication.........");
   try {
+
     const { token } = req.cookies;
+    console.log("The User Token status is.......",req.cookies);
+
     console.log("The User Token status is.......", token);
 
     if (!token) {

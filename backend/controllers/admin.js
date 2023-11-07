@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 // Admin Authentication
 exports.adminRegister = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { name, email, password,avatar } = req.body;
     console.log("Admin Credentails", req.body);
 
     let admin = await Admin.findOne({ email });
@@ -20,9 +20,10 @@ exports.adminRegister = async (req, res) => {
     }
 
     admin = await Admin.create({
-      username,
+      name,
       email,
       password,
+      avatar
     });
 
     console.log("Admin create", admin);

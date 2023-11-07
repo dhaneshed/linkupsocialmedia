@@ -2,10 +2,14 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const adminSchema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: [true, "Please enter a username"],
     unique: [true, "Username already exists"],
+  },
+  avatar: {
+    public_id: String,
+    url: String,
   },
   email: {
     type: String,

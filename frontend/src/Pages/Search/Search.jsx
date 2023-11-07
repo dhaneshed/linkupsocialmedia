@@ -15,12 +15,13 @@ const Search = () => {
   const { users, loading } = useSelector((state) => state.allUsers);
 
   const dispatch = useDispatch();
-   const socket = useRef();
+  const socket = useRef();
   const socketURL = 'https://linkupsocial.online/socket.io';
 
   socket.current = io(socketURL);
 
   useEffect(() => {
+
     // Listen for 'user-blocked' event
     socket.current.on("user-blocked", ({ userId }) => {
       // Handle the event here
