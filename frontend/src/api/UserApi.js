@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:4000/api/v1';
+const baseURL = 'https://linkupsocial.online/api/v1';
 export const UserApi=axios.create({
   baseURL,
   withCredentials: true
