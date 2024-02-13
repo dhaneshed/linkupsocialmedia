@@ -53,14 +53,6 @@ const Register = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          type="tel"
-          placeholder="Mobile Number"
-          className="registerInputs"
-          required
-          value={mobileNumber}
-          onChange={(e) => setMobileNumber(e.target.value)}
-        />
-        <input
           type="email"
           placeholder="Email"
           className="registerInputs"
