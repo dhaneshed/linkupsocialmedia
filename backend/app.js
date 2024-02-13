@@ -13,7 +13,7 @@ const morgan = require("morgan")
 
 var corsoption = {
   origin: [
-    process.env.ORIGIN,
+    "https://link-up-mppk.onrender.com",
     // "http://localhost:8080/socket.io",
     // "https://linkupsocial.online/socket.io",
     // "http://linkupsocial.online/socket.io",

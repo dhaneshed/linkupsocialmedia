@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
   const [avatar, setAvatar] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
