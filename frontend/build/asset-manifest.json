@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.52e2d21d.css",
-    "main.js": "/static/js/main.98fcf222.js",
+    "main.js": "/static/js/main.194de944.js",
     "static/css/561.a9607091.chunk.css": "/static/css/561.a9607091.chunk.css",
     "static/js/561.3b9bb371.chunk.js": "/static/js/561.3b9bb371.chunk.js",
     "static/js/490.9824cbbe.chunk.js": "/static/js/490.9824cbbe.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/notification-bell-svgrepo-com.svg": "/static/media/notification-bell-svgrepo-com.d7924fe8ea9d53eacd66430de3359e33.svg",
     "index.html": "/index.html",
     "main.52e2d21d.css.map": "/static/css/main.52e2d21d.css.map",
-    "main.98fcf222.js.map": "/static/js/main.98fcf222.js.map",
+    "main.194de944.js.map": "/static/js/main.194de944.js.map",
     "561.a9607091.chunk.css.map": "/static/css/561.a9607091.chunk.css.map",
     "561.3b9bb371.chunk.js.map": "/static/js/561.3b9bb371.chunk.js.map",
     "490.9824cbbe.chunk.js.map": "/static/js/490.9824cbbe.chunk.js.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.52e2d21d.css",
-    "static/js/main.98fcf222.js"
+    "static/js/main.194de944.js"
   ]
 }

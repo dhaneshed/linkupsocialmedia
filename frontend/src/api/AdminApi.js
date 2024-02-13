@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:4000/api/v1/admin';
+const baseURL = 'https://link-up-mppk.onrender.com/api/v1/admin';
 
 export const AdminApi=axios.create({
   baseURL,
