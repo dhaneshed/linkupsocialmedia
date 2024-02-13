@@ -3,16 +3,46 @@ const Post = require("../models/Post");
 const { sendEmail } = require("../middlewares/sendEmail");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
+const bcrypt = require("bcrypt");
+const OTP = require("../models/Otp");
+
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password, avatar } = req.body;
+    const { name, email, password, avatar,otp } = req.body;
+      // Check if all details are provided
+    if (!name || !email || !password || !otp) {
+      return res.status(403).json({
+        success: false,
+        message: 'All fields are required',
+      });
+    }
 
+     // Check if user already exists
     let user = await User.findOne({ email });
     if (user) {
       return res
         .status(400)
         .json({ success: false, message: "User already exists" });
+    }
+
+     // Find the most recent OTP for the email
+    const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
+    if (response.length === 0 || otp !== response[0].otp) {
+      return res.status(400).json({
+        success: false,
+        message: 'The OTP is not valid',
+      });
+    }
+    // Secure password
+    let hashedPassword;
+    try {
+      hashedPassword = await bcrypt.hash(password, 10);
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        message: `Hashing password error for ${password}: ` + error.message,
+      });
     }
 
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {

@@ -43,6 +43,7 @@ export const loadAdmin = () => async (dispatch) => {
       payload: data.admin,
     });
   } catch (error) {
+    console.log("The Load Admin error 2024 is.......",error);
     dispatch({
       type: "LoadAdminFailure",
       payload: error.response.data.message,

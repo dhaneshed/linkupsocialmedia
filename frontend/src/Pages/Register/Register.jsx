@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
   const [avatar, setAvatar] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -51,7 +52,14 @@ const Register = () => {
           required
           onChange={(e) => setName(e.target.value)}
         />
-
+        <input
+          type="tel"
+          placeholder="Mobile Number"
+          className="registerInputs"
+          required
+          value={mobileNumber}
+          onChange={(e) => setMobileNumber(e.target.value)}
+        />
         <input
           type="email"
           placeholder="Email"

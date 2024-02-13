@@ -45,6 +45,7 @@ export const loadUser = () => async (dispatch) => {
       payload: data.user,
     });
   } catch (error) {
+    console.log("The Load User error 2024 is......",error);
     dispatch({
       type: "LoadUserFailure",
       payload: error.response.data.message,
@@ -60,12 +61,13 @@ export const blockStatus = () => async (dispatch) => {
       type: "blockStatusRequest",
     });
     const { data } = await UserApi.get("/isBlocked");
-
+    console.log("Block Statuss data is:",data);
     dispatch({
       type: "blockStatusSuccess",
       payload: data.user,
     });
   } catch (error) {
+    console.log("The Block Status error 2024 is......",error);
     dispatch({
       type: "blockStatusFailure",
       payload: error.response.data.message,

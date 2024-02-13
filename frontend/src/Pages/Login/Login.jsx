@@ -5,28 +5,28 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../Actions/User";
 
-const Login = ( ) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  
 
-  const {error} = useSelector((state)  => state.user);
+
+  const { error } = useSelector((state) => state.user);
 
   const loginHandler = (e) => {
     e.preventDefault();
 
-      dispatch(loginUser(email,password));
-  
-    
+    dispatch(loginUser(email, password));
+
+
   };
 
-  
-  
+
+
   return (
     <div className="login">
       <form className="loginForm" onSubmit={loginHandler}>
-        <Typography variant="h3" style={{ padding: "2vmax" }}>
+        <Typography variant="h3" style={{ padding: "2vmax" }} >
           LinkUp
         </Typography>
 
@@ -52,7 +52,7 @@ const Login = ( ) => {
           <Typography>New User?</Typography>
         </Link>
       </form>
-    </div>
+    </div >
   );
 };
 

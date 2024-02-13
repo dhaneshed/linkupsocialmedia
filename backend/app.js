@@ -36,11 +36,13 @@ const post = require("./routes/post");
 const user = require("./routes/user");
 const admin = require("./routes/admin");
 const chat = require("./routes/chat");
+const otp = require("./routes/otp");
 const message = require("./routes/message");
 
 //Using Routes
 app.use("/api/v1", post);
 app.use("/api/v1", user);
+app.use("/api/v1", otp);
 app.use("/api/v1/admin", admin);
 app.use("/api/v1/chat", chat);
 app.use("/api/v1/message", message);

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Notification.css";
 import Noti from "./notification-bell-svgrepo-com.svg";
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { io } from "socket.io-client";
 import { useSelector } from "react-redux";
+import { Badge, IconButton } from "@mui/material";
 const Notification = ({ }) => {
   const [socket, setSocket] = useState(null);
   const { user } = useSelector((state) => state.user);
@@ -57,10 +59,13 @@ const Notification = ({ }) => {
     <div className="navbar">
       <div className="icons">
         <div className="icon" onClick={() => setOpen(!open)}>
-          <Noti className="iconImg" alt="" />
-          {notifications.length > 0 && (
-            <div className="counter">{notifications.length}</div>
-          )}
+          <IconButton aria-label="cart">
+            <NotificationsNoneIcon />
+            {notifications.length > 0 && (
+              <Badge badgeContent={notifications.length} color="secondary">
+              </Badge>
+            )}
+          </IconButton>
         </div>
       </div>
       {open && (
