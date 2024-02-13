@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 exports.connectDatabase = () => {
   mongoose
-    .connect(process.env.MONGO_URI)
+    .connect(`mongodb://127.0.0.1:27017/SocialMedia`)
     .then((con) => console.log(`Database Connected: ${con.connection.host}`))
     .catch((err) => console.log(err));
 };
