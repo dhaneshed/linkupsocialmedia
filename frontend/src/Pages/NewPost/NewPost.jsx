@@ -13,7 +13,7 @@ const NewPost = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
   const socket = useRef();
-  const socketURL = 'http://localhost:8080';
+  const socketURL = ' https://link-up-mppk.onrender.com/socket.io';
 
   socket.current = io(socketURL);
 

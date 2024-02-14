@@ -12,7 +12,7 @@ const UserBlockedMiddleware = ({ children }) => {
 
   const socket = useRef();
 
-  const socketURL = 'https://linkupsocial.online/socket.io';
+  const socketURL = ' https://link-up-mppk.onrender.com/socket.io';
 
   socket.current = io(socketURL);
 
