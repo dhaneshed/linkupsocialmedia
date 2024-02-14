@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.52e2d21d.css",
+    "main.js": "/static/js/main.a1720e52.js",
+    "static/css/561.a9607091.chunk.css": "/static/css/561.a9607091.chunk.css",
+    "static/js/561.4ca68dab.chunk.js": "/static/js/561.4ca68dab.chunk.js",
+    "static/js/490.9824cbbe.chunk.js": "/static/js/490.9824cbbe.chunk.js",
+    "static/js/216.50fd3e7d.chunk.js": "/static/js/216.50fd3e7d.chunk.js",
+    "static/css/92.d4be842f.chunk.css": "/static/css/92.d4be842f.chunk.css",
+    "static/js/92.9bad8051.chunk.js": "/static/js/92.9bad8051.chunk.js",
+    "static/js/760.a28fa3c4.chunk.js": "/static/js/760.a28fa3c4.chunk.js",
+    "static/js/23.ff2d3a22.chunk.js": "/static/js/23.ff2d3a22.chunk.js",
+    "static/media/notification-bell-svgrepo-com.svg": "/static/media/notification-bell-svgrepo-com.d7924fe8ea9d53eacd66430de3359e33.svg",
+    "index.html": "/index.html",
+    "main.52e2d21d.css.map": "/static/css/main.52e2d21d.css.map",
+    "main.a1720e52.js.map": "/static/js/main.a1720e52.js.map",
+    "561.a9607091.chunk.css.map": "/static/css/561.a9607091.chunk.css.map",
+    "561.4ca68dab.chunk.js.map": "/static/js/561.4ca68dab.chunk.js.map",
+    "490.9824cbbe.chunk.js.map": "/static/js/490.9824cbbe.chunk.js.map",
+    "216.50fd3e7d.chunk.js.map": "/static/js/216.50fd3e7d.chunk.js.map",
+    "92.d4be842f.chunk.css.map": "/static/css/92.d4be842f.chunk.css.map",
+    "92.9bad8051.chunk.js.map": "/static/js/92.9bad8051.chunk.js.map",
+    "760.a28fa3c4.chunk.js.map": "/static/js/760.a28fa3c4.chunk.js.map",
+    "23.ff2d3a22.chunk.js.map": "/static/js/23.ff2d3a22.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52e2d21d.css",
+    "static/js/main.a1720e52.js"
+  ]
+}
