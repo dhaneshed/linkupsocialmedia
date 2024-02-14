@@ -22,7 +22,7 @@ const Chat = () => {
   const [receiveMessage, setReceiveMessage] = useState({});
   const socket = useRef();
   const dispatch = useDispatch();
-  const socketURL = ' https://link-up-mppk.onrender.com/socket.io';
+  const socketURL = ' https://link-up-mppk.onrender.com';
 
 
   socket.current = io(socketURL);

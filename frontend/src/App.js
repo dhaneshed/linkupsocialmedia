@@ -43,7 +43,7 @@ function App() {
 
   const socket = useRef();
 
-  const socketURL = ' https://link-up-mppk.onrender.com/socket.io';
+  const socketURL = ' https://link-up-mppk.onrender.com';
 
   socket.current = io(socketURL);
 

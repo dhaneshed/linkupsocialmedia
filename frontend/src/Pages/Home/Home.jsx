@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 const Home = () => {
   const dispatch = useDispatch();
   const socket = useRef();
-  const socketURL = ' https://link-up-mppk.onrender.com/socket.io';
+  const socketURL = ' https://link-up-mppk.onrender.com';
 
   socket.current = io(socketURL);
 

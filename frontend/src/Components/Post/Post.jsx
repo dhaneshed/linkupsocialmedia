@@ -65,7 +65,7 @@ const Post = ({
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const socketURL = ' https://link-up-mppk.onrender.com/socket.io';
+  const socketURL = ' https://link-up-mppk.onrender.com';
 
   useEffect(() => {
     setSocket(io(socketURL));
