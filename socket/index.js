@@ -1,4 +1,4 @@
-const io = require("socket.io")(8080, {
+const io = require("socket.io")(httpsServer, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -74,3 +74,4 @@ io.on("connection", (socket) => {
     removeUser(socket.id);
   });
 });
+httpsServer.listen(8080);
