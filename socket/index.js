@@ -74,8 +74,4 @@ io.on("connection", (socket) => {
     removeUser(socket.id);
   });
 });
-
-const PORT = process.env.PORT || 8080; // Use the environment port provided by Render or default to 8080
-httpsServer.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+httpsServer.listen(8080);
