@@ -12,7 +12,7 @@ const UserBlockedMiddleware = ({ children }) => {
 
   const socket = useRef();
 
-  const socketURL = ' https://link-up-mppk.onrender.com:8080';
+  const socketURL = ' https://link-up-mppk.onrender.com:4000';
 
   socket.current = io(socketURL);
 
