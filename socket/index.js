@@ -1,6 +1,6 @@
-const io = require("socket.io")(httpsServer, {
+const io = require("socket.io")(8080, {
   cors: {
-    origin: "*",
+    origin: "https://link-up-mppk.onrender.com",
     methods: ["GET", "POST"],
     transports: ["websocket", "polling"],
     credentials: true,
@@ -74,4 +74,4 @@ io.on("connection", (socket) => {
     removeUser(socket.id);
   });
 });
-httpsServer.listen(8080);
+
