@@ -15,7 +15,7 @@ const Account = () => {
   const dispatch = useDispatch();
 
   const socket = useRef();
-  const socketURL = ' https://link-up-mppk.onrender.com';
+  const socketURL = ' https://link-up-mppk.onrender.com:8080';
 
   socket.current = io(socketURL);
 

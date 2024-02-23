@@ -13,7 +13,7 @@ export default function UserList() {
   const [sortModel, setSortModel] = useState([]);
   const socket = useRef();
   const dispatch = useDispatch();
-  const socketURL = ' https://link-up-mppk.onrender.com';
+  const socketURL = ' https://link-up-mppk.onrender.com:8080';
   socket.current = io(socketURL);
 
   useEffect(() => {

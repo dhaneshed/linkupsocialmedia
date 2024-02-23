@@ -11,7 +11,7 @@ const Notification = ({ }) => {
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
   const [socketConnected, setSocketConnected] = useState(false); // Track socket connection
-  const socketURL = ' https://link-up-mppk.onrender.com';
+  const socketURL = ' https://link-up-mppk.onrender.com:8080';
   useEffect(() => {
     const newSocket = io(socketURL);
     newSocket.on("connect", () => {
